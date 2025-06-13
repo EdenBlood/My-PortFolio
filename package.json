@@ -1,0 +1,36 @@
+{
+  "name": "portfolioedenblood",
+  "version": "0.0.1",
+  "description": "PortFolio Edenblood",
+  "homepage": "https://github.com/EdenBlood/My-PortFolio#readme",
+  "bugs": {
+    "url": "https://github.com/EdenBlood/My-PortFolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdenBlood/My-PortFolio.git"
+  },
+  "license": "ISC",
+  "author": "Edenblood",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.4",
+    "@headlessui/react": "^2.2.2",
+    "@tailwindcss/vite": "^4.0.17",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "astro": "^5.7.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.0.17",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {}
+}

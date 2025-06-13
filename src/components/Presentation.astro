@@ -1,0 +1,40 @@
+---
+import SlideBar from "./SlideBar.astro";
+import Arrow from "./Icons/Arrow.astro";
+import ContactButton from "./ContactButton.astro";
+---
+
+<div class="min-h-[90vh] flex flex-col justify-evenly">
+  <h1 class="text-7xl font-medium">
+    Transformando tus ideas en <span class="text-fuchsia-600">Realidad.</span>
+  </h1>
+
+  <div class="text-lg font-light text-pretty space-y-0.5">
+    <p>Soy un <span class="text-fuchsia-400 font-medium">Desarrollador Full Stack</span> al que encanta crear sitios web dinámicos, con algo de complejidad.</p>
+    <p>Trabajo principalmente con los stacks <span class="text-fuchsia-400 font-medium">MERN y PERN</span>, pero siempre estoy abierto a aprender nuevas tecnologías.</p>
+    <p>Tengo nivel de <span class="text-fuchsia-400 font-medium">inglés B1</span> y me esfuerzo todos los días para seguir mejorando.</p>
+  </div>
+
+  <div class="flex">
+    <p class="text-7xl font-bold bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent">+20</p>
+
+    <div class="flex flex-col justify-center gap-2 ml-6 ">
+      <p class="text-2xl font-bold text-pretty bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent">Proyectos realizados</p>
+
+      <button type="button" class="btn hover:text-fuchsia-500 transition-colors cursor-pointer rounded-lg">
+        <a class="flex items-center gap-2 text-lg font-light" href="#projects">Mis Proyectos 
+          <span class="arrow mt-1"><Arrow/></span>
+        </a>
+      </button>
+    </div>
+  </div>
+  <div class="space-y-3">
+    <h2 class="text-xl font-medium">Tecnologias que uso: </h2>
+    <SlideBar />
+  </div>
+
+  <div class="space-y-5">
+    <p class="text-lg font-light text-pretty space-y-0.5">Si tienes algun proyecto en mente contactame y lo proyectamos:</p>
+    <ContactButton />
+  </div>
+</div>

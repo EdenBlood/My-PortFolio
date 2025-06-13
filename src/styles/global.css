@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../assets/fonts/Outfit/Outfit-VariableFont_wght.ttf");
+}
+
+@layer components {
+  *, *:before, *:after {
+    box-sizing: inherit;
+	}
+	html {
+		box-sizing: border-box;
+	}
+  .bg-gray-card {
+    background-color: rgb(39, 40, 41)
+  }
+  
+  .texture {
+    flex: none;
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .texture-child {
+    width:100%;
+    height:100%;
+    background-size:161px;
+    background-repeat: repeat;
+    background-image:url('/Noise.png');
+    opacity:0.04;
+    border-radius:0
+  }
+  section {
+    padding: 5vh 0;
+  }
+  section:first-of-type {
+    padding-top: 0;
+  }
+  section:last-of-type {
+    padding-bottom: 0;
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 1s ease-out forwards;
+  }
+  
+  .arrow {
+    transition: transform 0.5s ease;
+  }
+  
+  .btn:hover .arrow {
+    transform: translateX(1rem);
+  }
+  
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Slice Bar */
+  .slide-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #1e1e1e;
+    padding: 1rem 0;
+  }
+  .slider-container:hover .slide-track {
+    animation-play-state: paused;
+  }
+  .slider {
+    display:flex;
+    align-items: center;
+    height: 100%;
+  }
+  .slide-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 12s linear infinite;
+  }
+  .slide {
+    flex: 0 0 auto;
+    padding: 0 2rem;
+    font-size: 1.25rem;
+    color: white;
+  }
+}

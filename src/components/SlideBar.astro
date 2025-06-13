@@ -1,0 +1,38 @@
+---
+import React from "./Icons/React.astro";
+import NodeJs from "./Icons/NodeJs.astro";
+import Express from "./Icons/Express.astro";
+import MongoDB from "./Icons/MongoDB.astro";
+import PostgreSQL from "./Icons/PostgreSQL.astro";
+import Tailwind from "./Icons/Tailwind.astro";
+import JavaScript from "./Icons/JavaScript.astro";
+import TypeScript from "./Icons/TypeScript.astro";
+import DisplayTag from "./DisplayTag";
+---
+
+<div class="slider-container relative">
+  <div class="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+  <div class="slider">
+    <div class="slide-track">
+      
+      <div class="slide relative group w-fit"><DisplayTag text="React" ubication="-top-5 left-1/4" /><React class="w-16 h-16" /></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Node.js" ubication="-top-5 left-1/4" /><NodeJs class="w-16 h-16" /></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Express.js" ubication="-top-5 left-1/4" /><Express class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="MongoDB" ubication="-top-5 left-1/4" /><MongoDB class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="PostgreSQL" ubication="-top-5 left-1/4" /><PostgreSQL class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Tailwind css" ubication="-top-5 left-1/4" /><Tailwind class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="JavaScript" ubication="-top-5 left-1/4" /><JavaScript class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="TypeScript" ubication="-top-5 left-1/4" /><TypeScript class="w-16 h-16" /></div>
+      <!-- Duplicado para animación infinita -->
+      <div class="slide relative group w-fit"><DisplayTag text="React" ubication="-top-5 left-1/4" /><React class="w-16 h-16" /></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Node.js" ubication="-top-5 left-1/4" /><NodeJs class="w-16 h-16" /></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Express.js" ubication="-top-5 left-1/4" /><Express class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="MongoDB" ubication="-top-5 left-1/4" /><MongoDB class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="PostgreSQL" ubication="-top-5 left-1/4" /><PostgreSQL class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="Tailwind css" ubication="-top-5 left-1/4" /><Tailwind class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="JavaScript" ubication="-top-5 left-1/4" /><JavaScript class="w-16 h-16"/></div>
+      <div class="slide relative group w-fit"><DisplayTag text="TypeScript" ubication="-top-5 left-1/4" /><TypeScript class="w-16 h-16" /></div>
+    </div>
+  </div>
+</div>

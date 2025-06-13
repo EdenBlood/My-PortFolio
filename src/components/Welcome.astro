@@ -1,0 +1,31 @@
+---
+import MainCard from "./MainCard.astro"
+import Presentation from "./Presentation.astro";
+import Projects from "./Projects.jsx";
+import Experience from "./Experience.astro";
+import Contact from "./Contact.jsx"
+---
+
+<div>
+  <div class="flex w-full min-h-screen gap-18 animate-fade-in-down"> 
+    <MainCard />
+  
+    <div class="w-2/3 py-[5vh] overflow-hidden">
+      <section class="reveal">
+        <Presentation />
+      </section>
+
+      <section id="projects" class="reveal min-h-screen">
+        <Projects client:load />
+      </section>
+      
+      <section id="experience" class="reveal min-h-screen flex flex-col justify-center gap-10">
+        <Experience />
+      </section>
+
+      <section id="contact" class="reveal">
+        <Contact client:load />
+      </section>
+    </div>
+  </div>
+</div>
