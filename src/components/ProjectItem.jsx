@@ -16,7 +16,7 @@ export default function ProjectItem({project, dispatch}) {
           </div>
           <div className="px-3 h-1/3 flex flex-col justify-center text-white">
             <h2 className="font-semibold text-xl group-hover:text-fuchsia-500 transition-colors duration-300">{project.name}</h2>
-            <p className="line-clamp-1 text-sm font-light">{project.description}</p>
+            <p className="line-clamp-1 text-sm font-light">{project.smallDescription}</p>
           </div>
         </button>
       </article>
