@@ -13,7 +13,7 @@ export default function Projects() {
       <TitleSection>
         Proyectos
       </TitleSection>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-10">
         {state.projects.map( project => (
           <ProjectItem project={project} dispatch={dispatch} key={project.id} />
         ) )}

@@ -1,0 +1,24 @@
+---
+import Presentation from "./Presentation.astro";
+import Projects from "./Projects.jsx";
+import Experience from "./Experience.astro";
+import Contact from "./Contact.jsx"
+---
+
+<div>
+  <section class="reveal">
+    <Presentation />
+  </section>
+
+  <section id="projects" class="reveal min-h-screen">
+    <Projects client:load />
+  </section>
+  
+  <section id="experience" class="reveal min-h-screen flex flex-col justify-center md:gap-10">
+    <Experience />
+  </section>
+
+  <section id="contact" class="reveal">
+    <Contact client:load />
+  </section>
+</div>
