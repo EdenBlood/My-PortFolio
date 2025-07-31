@@ -1,184 +1,92 @@
 ---
-import '../styles/global.css';
+import MainCard from '../components/MainCard.astro'
+import '../styles/global.css'
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>EdenBlood Dev PortFolio</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>EdenBlood Dev PortFolio</title>
+  </head>
 
-	<body class="bg-primary text-slate-50 relative">
+  <body class="bg-primary text-slate-50 relative">
     <div class="fixed inset-0 z-0p pointer-events-none">
       <div class="spaces-particles w-full h-full"></div>
     </div>
 
     <div class="texture">
-      <div class="texture-child" />
+      <div class="texture-child"></div>
     </div>
     <div class="container-main mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-7xl">
-      <slot />
+      <div
+        class="relative flex flex-col lg:flex-row w-full min-h-screen gap-18 animate-fade-in-down"
+      >
+        <main
+          class="flex flex-col md:flex-row lg:flex-col flex-nowrap justify-between items-center h-[95vh] md:h-[90vh] relative top-[2.5vh] md:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 md:px-12 lg:py-8 lg:px-0 rounded-2xl w-full lg:w-1/3 2xl:w-2/5 self-start md:gap-6 lg:gap-0 xl:gap-2"
+        >
+          <MainCard />
+        </main>
+        <div
+          class="w-full lg:w-2/3 2xl:w-3/5 py-[2.5vh] md:py-[5vh] overflow-hidden"
+        >
+          <slot />
+        </div>
+      </div>
     </div>
-
 
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver((entries, obs) => {
-          entries.forEach(entry => {
-            if(entry.isIntersecting) {
-              const parent = entry.target
-              parent.classList.add('opacity-100', 'translate-y-0')
-              parent.classList.remove('opacity-0', 'translate-y-8')
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const parent = entry.target
+                parent.classList.add('opacity-100', 'translate-y-0')
+                parent.classList.remove('opacity-0', 'translate-y-8')
 
-              const children = parent.querySelectorAll('.reveal-child')
-              children.forEach(child => {
-                child.classList.add('opacity-100', 'translate-y-0')
-                child.classList.remove('opacity-0', 'translate-y-8')
-              })
-              obs.unobserve(parent);
-            }
-          });
-        }, {
-          threshold: 0.25
-        })
+                const children = parent.querySelectorAll('.reveal-child')
+                children.forEach((child) => {
+                  child.classList.add('opacity-100', 'translate-y-0')
+                  child.classList.remove('opacity-0', 'translate-y-8')
+                })
+                obs.unobserve(parent)
+              }
+            })
+          },
+          {
+            threshold: 0.25
+          }
+        )
 
-        const elements = document.querySelectorAll('.reveal');
-        elements.forEach(element => {
-          element.classList.add('opacity-0', 'translate-y-8','transition-all', 'duration-1000', 'ease-out');
+        const elements = document.querySelectorAll('.reveal')
+        elements.forEach((element) => {
+          element.classList.add(
+            'opacity-0',
+            'translate-y-8',
+            'transition-all',
+            'duration-1000',
+            'ease-out'
+          )
 
-          const children = element.querySelectorAll('reveal-child');
-          children.forEach(child => {
-            child.classList.add('opacity-0', 'translate-y-8','transition-all', 'duration-1000', 'ease-out')
+          const children = element.querySelectorAll('reveal-child')
+          children.forEach((child) => {
+            child.classList.add(
+              'opacity-0',
+              'translate-y-8',
+              'transition-all',
+              'duration-1000',
+              'ease-out'
+            )
           })
 
-          observer.observe(element);
+          observer.observe(element)
         })
       })
     </script>
-	</body>
+  </body>
 </html>
 
-<style is:global>
-	@import "tailwindcss";
-
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: "Outfit", system-ui, -apple-system, sans-serif;
-	}
-	*, *:before, *:after {
-		box-sizing: inherit;
-	}
-	html {
-		box-sizing: border-box;
-	}
-	/* .container-main {
-		width: min(95%, 64rem);
-		margin: 0 auto;
-	}
-  @media (min-width: 1380px) {
-    .container-main {
-      width: 74rem;
-    }
-  } */
-
-  .texture {
-    flex: none;
-    height: 100%;
-    left: 0;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 50;
-  }
-  .texture-child {
-    width:100%;
-    height:100%;
-    background-size:161px;
-    background-repeat: repeat;
-    background-image:url('/Noise.png');
-    opacity:.05;
-    border-radius:0;
-  }
-  section {
-    padding: 5vh 0;
-  }
-  section:first-of-type {
-    padding-top: 0;
-  }
-  section:last-of-type {
-    padding-bottom: 0;
-  }
-
-  .animate-fade-in-down {
-    animation: fade-in-down 1s ease-out forwards;
-  }
-
-  .arrow {
-    transition: transform 0.5s ease;
-  }
-
-  .btn:hover .arrow {
-    transform: translateX(1rem);
-  }
-
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
-      transform: translateY(2rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  /* Slice Bar */
-  .slide-container {
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #1e1e1e;
-    padding: 1rem 0;
-  }
-  .slider-container:hover .slide-track {
-    animation-play-state: paused;
-  }
-  .slider {
-    display:flex;
-    align-items: center;
-    height: 100%;
-  }
-  .slide-track {
-    display: flex;
-    width: max-content;
-    animation: scroll 12s linear infinite;
-  }
-  .slide {
-    flex: 0 0 auto;
-    padding: 0 2rem;
-    font-size: 1.25rem;
-    color: white;
-  }
-
-	@theme {
-		--color-gray-card: rgb(39, 40, 41);
-	}
-
-	@font-face {
-		font-family: "Outfit";
-		src: url("../assets/fonts/Outfit/Outfit-VariableFont_wght.ttf");
-	}
-</style>
+<style is:global></style>

@@ -42,7 +42,9 @@ const projects = [
             <strong>Mongoose</strong>, usando filtros avanzados como{" "}
             <code>$in</code>, <code>$or</code>, etc.
           </li>
-          <li className="pl-2">Estructura backend escalable y bien organizada.</li>
+          <li className="pl-2">
+            Estructura backend escalable y bien organizada.
+          </li>
           <li className="pl-2">
             Gestión de múltiples endpoints: en la vista de tareas se consumen
             entre <strong>8 y 10 endpoints</strong>.
@@ -102,11 +104,11 @@ const projects = [
           arquitectura de MVC (Model View Controller).
         </p>
         <p className="mb-4">
-          La base de datos está construida con <strong>MongoDB</strong> y su ODM <strong>Mongoose</strong> y las
-          pruebas de rutas fueron realizadas con <strong>Postman</strong>.
-          Además, implementé el envío de correos electrónicos con{" "}
-          <strong>NodeMailer</strong> y <strong>MailTrap</strong> para simular
-          la entrega.
+          La base de datos está construida con <strong>MongoDB</strong> y su ODM{" "}
+          <strong>Mongoose</strong> y las pruebas de rutas fueron realizadas con{" "}
+          <strong>Postman</strong>. Además, implementé el envío de correos
+          electrónicos con <strong>NodeMailer</strong> y{" "}
+          <strong>MailTrap</strong> para simular la entrega.
         </p>
         <p className="mb-2 font-semibold">
           Aprendizajes y características técnicas:

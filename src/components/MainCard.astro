@@ -1,13 +1,19 @@
 ---
-import ContactButton from "./ContactButton.astro";
-import LinkedIn from "./Icons/LinkedIn.astro";
-import GitHub from "./Icons/GitHub.astro";
-import Curriculum from "./Icons/Curriculum.astro";
-import DisplayTag from "./DisplayTag";
+import ContactButton from './ContactButton.astro'
+import LinkedIn from './Icons/LinkedIn.astro'
+import GitHub from './Icons/GitHub.astro'
+import Curriculum from './Icons/Curriculum.astro'
+import DisplayTag from './DisplayTag'
 ---
 
-<header class="mx-12 md:mx-0 lg:mx-12 md:w-2/3 lg:w-auto rounded-xl h-full overflow-hidden ">
-  <img class="object-cover rounded-xl" src="/perfil.webp" alt="Foto de Franco Montechiani" />
+<header
+  class="mx-12 md:mx-0 lg:mx-12 md:w-2/3 lg:w-auto rounded-xl h-full overflow-hidden"
+>
+  <img
+    class="object-cover rounded-xl"
+    src="/perfil.webp"
+    alt="Foto de Franco Montechiani"
+  />
 </header>
 
 <div
@@ -27,7 +33,7 @@ import DisplayTag from "./DisplayTag";
       rel="noopener noreferrer"
     >
       <LinkedIn class="size-6" />
-      <DisplayTag text="Mi LinkedIn" ubication="-top-7 -left-1/2" />
+      <DisplayTag client:load text="Mi LinkedIn" ubication="-top-7 -left-1/2" />
     </a>
 
     <a
@@ -37,7 +43,7 @@ import DisplayTag from "./DisplayTag";
       rel="noopener noreferrer"
     >
       <GitHub class="size-6" />
-      <DisplayTag text="Mi GitHub" ubication="-top-7 -left-1/2" />
+      <DisplayTag client:load text="Mi GitHub" ubication="-top-7 -left-1/2" />
     </a>
 
     <a
@@ -45,7 +51,11 @@ import DisplayTag from "./DisplayTag";
       href="#"
     >
       <Curriculum class="size-6" />
-      <DisplayTag text="Mi Curriculum" ubication="-top-7 -left-1/2" />
+      <DisplayTag
+        client:load
+        text="Mi Curriculum"
+        ubication="-top-7 -left-1/2"
+      />
     </a>
   </div>
 

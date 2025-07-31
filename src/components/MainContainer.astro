@@ -1,8 +1,9 @@
 ---
-import Presentation from "./Presentation.astro";
-import Projects from "./Projects.jsx";
-import Experience from "./Experience.astro";
-import Contact from "./Contact.jsx"
+import Presentation from './Presentation.astro'
+import Projects from './Projects.astro'
+import Experience from './Experience.astro'
+import Contact from './Contact.jsx'
+import TitleSection from './TitleSection.astro'
 ---
 
 <div>
@@ -11,14 +12,20 @@ import Contact from "./Contact.jsx"
   </section>
 
   <section id="projects" class="reveal min-h-screen">
-    <Projects client:load />
+    <TitleSection>Proyectos</TitleSection>
+    <Projects />
   </section>
-  
-  <section id="experience" class="reveal min-h-screen flex flex-col justify-center md:gap-10">
+
+  <section
+    id="experience"
+    class="reveal min-h-screen flex flex-col justify-center md:gap-10"
+  >
+    <TitleSection>Experiencia en otro rubro</TitleSection>
     <Experience />
   </section>
 
   <section id="contact" class="reveal">
-    <Contact client:load />
+    <TitleSection>Contacto</TitleSection>
+    <Contact client:visible />
   </section>
 </div>

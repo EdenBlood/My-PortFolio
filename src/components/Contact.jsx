@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Label from "./Label";
-import TitleSection from "./TitleSection";
+import TitleSection from "./TitleSection.astro";
 import Alert from "./Alert";
 import emailjs from "@emailjs/browser";
 
@@ -68,8 +68,6 @@ export default function Contact() {
 
   return (
     <>
-      <TitleSection>Contacto</TitleSection>
-
       <form
         ref={form}
         onSubmit={handleSubmit}

@@ -1,0 +1,19 @@
+---
+  import type { IProject } from "../data/projects";
+  const { project } = Astro.props as { project: IProject };
+---
+
+<article>
+  <a
+    class="flex flex-col w-full h-64 group rounded-lg bg-gray-card cursor-pointer overflow-hidden"
+    href={`/project/${project.slug}`}
+  >
+    <div class="h-2/3 overflow-hidden">
+      <img class="block w-full h-full object-cover object-center group-hover:scale-125 transform will-change-transform transition-all duration-500" src={project.images[0]} alt={`${project.name}`} />
+    </div>
+    <div class="px-3 h-1/3 flex flex-col justify-center text-white">
+      <h2 class="font-semibold text-xl group-hover:text-fuchsia-500 transition-colors duration-300">{project.name}</h2>
+      <p class="line-clamp-1 text-sm font-light">{project.smallDescription}</p>
+    </div>
+  </a>
+</article>
