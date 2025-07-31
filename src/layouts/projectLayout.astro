@@ -1,5 +1,6 @@
 ---
 import MainCard from '../components/MainCard.astro'
+import Script from '../components/Script.astro'
 import '../styles/global.css'
 import GlobalLayout from './GlobalLayout.astro'
 ---
@@ -15,22 +16,20 @@ import GlobalLayout from './GlobalLayout.astro'
 
   <body class="text-slate-50 relative">
     <GlobalLayout>
-      <div class="mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-7xl">
+      <div class="mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-[1550px]">
         <div
-          class="relative flex flex-col lg:flex-row w-full min-h-screen gap-18 animate-fade-in-down"
+          class="relative flex flex-col lg:flex-row w-full min-h-screen gap-18 lg:gap-12 2xl:gap-18 animate-fade-in-down"
         >
           <main
-            class="hidden lg:flex flex-col flex-nowrap justify-between items-center h-[95vh] md:h-[90vh] relative top-[2.5vh] md:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 md:px-12 lg:py-8 lg:px-0 rounded-2xl w-full lg:w-1/3 2xl:w-2/5 self-start md:gap-6 lg:gap-0 xl:gap-2"
+            class="hidden lg:flex lg:flex-col flex-nowrap justify-between items-center h-[95vh] md:h-[90vh] relative top-[2.5vh] md:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 md:px-12 lg:py-8 lg:px-0 2xl:py-14 2xl:px-4 rounded-2xl w-auto lg:w-1/3 2xl:w-3/7 md:gap-6 lg:gap-0 xl:gap-2 2xl:gap-6"
           >
             <MainCard />
           </main>
-          <article
-            class="w-full lg:w-2/3 2xl:w-3/5 py-[2.5vh] md:py-[5vh] overflow-hidden"
-          >
-            <slot />
-          </article>
+          <slot />
         </div>
       </div>
     </GlobalLayout>
+
+    <Script />
   </body>
 </html>

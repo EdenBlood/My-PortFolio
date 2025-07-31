@@ -1,8 +1,8 @@
 ---
 import projects from '../../data/projects'
 import type { GetStaticPaths } from 'astro'
-import ProjectLayout from '../../layouts/projectLayout.astro'
 import TitleSection from '../../components/TitleSection.astro'
+import Layout from '../../layouts/projectLayout.astro'
 
 export const getStaticPaths = (() => {
   const pages = projects
@@ -17,57 +17,64 @@ export const getStaticPaths = (() => {
 const { project } = Astro.props
 ---
 
-<ProjectLayout>
-  <TitleSection>{project.name}</TitleSection>
+<Layout>
+  <div class="w-full lg:w-2/3 2xl:w-4/7 py-[2.5vh] md:py-[5vh]">
+    <article class="flex flex-col gap-8 items-start">
+      <TitleSection>{project.name}</TitleSection>
+      <div class="overflow-hidden">
+        <img
+          class="h-60 2xl:h-80 w-full rounded-xl"
+          src={`${project.images[0]}`}
+        />
+      </div>
+      <div class="space-y-3 2xl:space-y-4">
+        <h2 class="font-bold text-3xl 2xl:text-6xl">Descripción:</h2>
+        <div set:html={project.description} class="text-md 2xl:text-2xl pl-2" />
 
-  <div class="flex flex-col gap-8 w-full items-start">
-    <div class="overflow-hidden">
-      <img class="h-60 w-full rounded-xl" src={`${project.images[0]}`} />
-    </div>
-    <div class="space-y-3">
-      <h2 class="font-bold text-3xl">Descripción:</h2>
-      <div set:html={project.description} class="text-md pl-2" />
+        <h2 class="font-bold text-3xl 2xl:text-6xl">
+          Aprendizajes y características técnicas:
+        </h2>
+        <div set:html={project.learnings} class="text-md 2xl:text-2xl pl-2" />
 
-      <h2 class="font-bold text-3xl">
-        Aprendizajes y características técnicas:
-      </h2>
-      <div set:html={project.learnings} class="text-md pl-2" />
-
-      {
-        project.userData && (
-          <>
-            <h3 class="font-bold text-3xl">Datos de Prueba:</h3>
-            <div set:html={project.userData} class="text-md pl-2" />
-          </>
-        )
-      }
-
-      <h2 class="font-bold text-3xl">Tecnologías:</h2>
-
-      <ul class="flex flex-wrap gap-3 pl-2">
         {
-          project.technologies.map((technology) => (
-            <li class="bg-black bg-linear-to-tl from-blue-800 via-black to-fuchsia-800 hover:contrast-150 transition-all duration-300 hover:scale-110 p-2 rounded-full text-xs my-1 cursor-default">
-              {technology}
-            </li>
-          ))
+          project.userData && (
+            <>
+              <h3 class="font-bold text-3xl 2xl:text-6xl">Datos de Prueba:</h3>
+              <div
+                set:html={project.userData}
+                class="text-md pl-2 2xl:text-2xl"
+              />
+            </>
+          )
         }
-      </ul>
-    </div>
-  </div>
 
-  <nav class="flex justify-start mt-8 gap-8">
-    <a
-      href="/"
-      class="bg-purple-600 hover:bg-purple-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-md"
-      >Volver al Inicio</a
-    >
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="bg-indigo-600 hover:bg-indigo-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-md"
-      >Ver Proyecto</a
-    >
-  </nav>
-</ProjectLayout>
+        <h2 class="font-bold text-3xl 2xl:text-6xl">Tecnologías:</h2>
+
+        <ul class="flex flex-wrap gap-3 pl-2">
+          {
+            project.technologies.map((technology) => (
+              <li class="bg-black bg-linear-to-tl from-blue-800 via-black to-fuchsia-800 hover:contrast-150 transition-all duration-300 hover:scale-110 p-2 rounded-full text-xs 2xl:text-xl my-1 cursor-default">
+                {technology}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <nav class="flex justify-start mt-8 gap-8">
+        <a
+          href="/"
+          class="bg-purple-600 hover:bg-purple-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-md 2xl:text-2xl"
+          >Volver al Inicio</a
+        >
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-indigo-600 hover:bg-indigo-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-md 2xl:text-2xl"
+          >Ver Proyecto</a
+        >
+      </nav>
+    </article>
+  </div>
+</Layout>

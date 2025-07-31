@@ -20,16 +20,16 @@ const experiences = [
 <div>
   {
     experiences.map((experience) => (
-      <article class="space-y-2">
-        <h2 class="font-semibold text-3xl text-white">
+      <article class="space-y-2 2xl:space-y-4">
+        <h2 class="font-semibold text-3xl 2xl:text-6xl text-white">
           {experience.job} en{' '}
           <span class="text-fuchsia-500">{experience.plate}</span>
         </h2>
-        <p class="text-lg text-white ">{experience.description}</p>
+        <p class="text-lg 2xl:text-3xl text-white ">{experience.description}</p>
         <div>
-          <ul class="space-y-1 list-disc pl-6">
+          <ul class="space-y-1 2xl:space-y-2 list-disc pl-6">
             {experience.learnings.map((learn) => (
-              <li class=" text-md text-pretty font-light text-white/95">
+              <li class=" text-md 2xl:text-2xl text-pretty font-light text-white/95">
                 {learn}
               </li>
             ))}

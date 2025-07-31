@@ -6,7 +6,14 @@
   --color-container: #2a263d;
 }
 
-html,
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -15,14 +22,7 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-}
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-html {
-  box-sizing: border-box;
+  background: radial-gradient(ellipse at bottom, #1e1b2e 0%, #090a0f 100%);
 }
 
 .texture {
@@ -121,84 +121,7 @@ section:last-of-type {
   src: url('../assets/fonts/Outfit/Outfit-VariableFont_wght.ttf');
 }
 
-/* Background */
-.spaces-particles {
-  position: relative;
-}
-
-/* Overlay layers to paint the star field */
-.spaces-particles::before,
-.spaces-particles::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image:
-    radial-gradient(
-      2px 2px at 20px 30px,
-      rgba(255, 255, 255, 0.8) 50%,
-      transparent 51%
-    ),
-    radial-gradient(
-      1.5px 1.5px at 130px 80px,
-      rgba(255, 255, 255, 0.6) 50%,
-      transparent 51%
-    ),
-    radial-gradient(
-      2.5px 2.5px at 200px 150px,
-      rgba(255, 255, 255, 0.9) 50%,
-      transparent 51%
-    ),
-    radial-gradient(
-      1px 1px at 90px 200px,
-      rgba(255, 255, 255, 0.7) 50%,
-      transparent 51%
-    ),
-    radial-gradient(
-      1px 1px at 60px 120px,
-      rgba(255, 255, 255, 0.5) 50%,
-      transparent 51%
-    ),
-    radial-gradient(
-      2px 2px at 250px 40px,
-      rgba(255, 255, 255, 0.8) 50%,
-      transparent 51%
-    );
-  background-size: 400px 400px;
-  background-repeat: repeat;
-  animation: starScroll 90s linear infinite;
-  pointer-events: none;
-  opacity: 0.4;
-}
-
-/* Slightly different speed & density for parallax */
-.spaces-particles::after {
-  animation-duration: 180s;
-  opacity: 0.6;
-}
-
-/* Give content inside proper stacking context */
-.spaces-particles > * {
-  position: relative;
-  z-index: 10;
-}
-
-@keyframes starScroll {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 400px 400px;
-  }
-}
-
 /* Starts */
-html,
-body {
-  background: radial-gradient(ellipse at bottom, #1e1b2e 0%, #090a0f 100%);
-}
 
 /* Estrellas pequeñas */
 #stars,

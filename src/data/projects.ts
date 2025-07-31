@@ -62,11 +62,11 @@ const projects: IProject[] = [
           </li>
         </ul>`,
     userData: `
-        <div class="mb-2">
+        <div class="mb-2 space-y-2">
           <p>Manager: correo@correo.com</p>
           <p>Contraseña: 55115511</p>
         </div>
-        <div class="mb-2">
+        <div class="mb-2 space-y-2">
           <p>Colaborador: martin@correo.com</p>
           <p>Contraseña: 55115511</p>
         </div>`,
@@ -146,7 +146,7 @@ const projects: IProject[] = [
           </li>
         </ul>`,
     userData: `
-        <div class="mb-2">
+        <div class="mb-2 space-y-2">
           <p>
             <strong>Usuario:</strong> correo@correo.com
           </p>
