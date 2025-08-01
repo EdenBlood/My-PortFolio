@@ -4,6 +4,7 @@
   /** bg */
   --color-primary: #1e1b2e;
   --color-container: #2a263d;
+  --color-gray-card: rgb(39, 40, 41);
 }
 
 *,
@@ -23,6 +24,9 @@ body {
     -apple-system,
     sans-serif;
   background: radial-gradient(ellipse at bottom, #1e1b2e 0%, #090a0f 100%);
+}
+strong {
+  @apply text-purple-400;
 }
 
 .texture {
@@ -44,13 +48,13 @@ body {
   opacity: 0.05;
   border-radius: 0;
 }
-section {
+.section {
   padding: 5vh 0;
 }
-section:first-of-type {
+.section:first-of-type {
   padding-top: 0;
 }
-section:last-of-type {
+.section:last-of-type {
   padding-bottom: 0;
 }
 
@@ -85,6 +89,20 @@ section:last-of-type {
   }
 }
 
+@media (min-width: 1024px) {
+  .project-image {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: 0.7;
+    &:hover {
+      width: auto;
+      opacity: 1;
+      filter: contrast(120%);
+    }
+  }
+}
+
 /* Slice Bar */
 .slide-container {
   overflow: hidden;
@@ -110,10 +128,6 @@ section:last-of-type {
   padding: 0 2rem;
   font-size: 1.25rem;
   color: white;
-}
-
-@theme {
-  --color-gray-card: rgb(39, 40, 41);
 }
 
 @font-face {

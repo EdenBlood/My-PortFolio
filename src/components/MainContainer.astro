@@ -7,24 +7,24 @@ import TitleSection from './TitleSection.astro'
 ---
 
 <div class="w-full lg:w-2/3 2xl:w-4/7 py-[2.5vh] md:py-[5vh]">
-  <section class="reveal">
+  <section class="section reveal">
     <Presentation />
   </section>
 
-  <section id="projects" class="reveal min-h-screen">
+  <section id="projects" class="section reveal min-h-screen">
     <TitleSection>Proyectos</TitleSection>
     <Projects />
   </section>
 
   <section
     id="experience"
-    class="reveal min-h-screen flex flex-col justify-center md:gap-10"
+    class="section reveal min-h-screen flex flex-col justify-center md:gap-10"
   >
     <TitleSection>Experiencia en otro rubro</TitleSection>
     <Experience />
   </section>
 
-  <section id="contact" class="reveal">
+  <section id="contact" class="section reveal">
     <TitleSection>Contacto</TitleSection>
     <Contact client:visible />
   </section>

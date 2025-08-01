@@ -4,6 +4,7 @@ import type { GetStaticPaths } from 'astro'
 import TitleSection from '../../components/TitleSection.astro'
 import Layout from '../../layouts/projectLayout.astro'
 import ImageSlide from '../../components/ImageSlide.astro'
+import SubTitle from '../../components/SubTitle.astro'
 
 export const getStaticPaths = (() => {
   const pages = projects
@@ -20,24 +21,26 @@ const { project } = Astro.props
 
 <Layout>
   <div class="w-full lg:w-2/3 2xl:w-4/7 py-[2.5vh] md:py-[5vh]">
-    <article class="flex flex-col gap-8 items-start">
-      <TitleSection>{project.name}</TitleSection>
+    <article class="flex flex-col">
+      <div class="w-full h-full">
+        <TitleSection
+          >Proyecto <span class="text-purple-600">{project.name}</span>
+        </TitleSection>
 
-      <ImageSlide images={project.images} name={project.name} />
+        <ImageSlide images={project.images} name={project.name} />
+      </div>
 
       <div class="space-y-3 2xl:space-y-4">
-        <h2 class="font-bold text-3xl 2xl:text-6xl">Descripción:</h2>
+        <SubTitle>Descripción:</SubTitle>
         <div set:html={project.description} class="text-md 2xl:text-2xl pl-2" />
 
-        <h2 class="font-bold text-3xl 2xl:text-6xl">
-          Aprendizajes y características técnicas:
-        </h2>
+        <SubTitle>Aprendizajes y características técnicas:</SubTitle>
         <div set:html={project.learnings} class="text-md 2xl:text-2xl pl-2" />
 
         {
           project.userData && (
             <>
-              <h3 class="font-bold text-3xl 2xl:text-6xl">Datos de Prueba:</h3>
+              <SubTitle>Datos de Prueba:</SubTitle>
               <div
                 set:html={project.userData}
                 class="text-md pl-2 2xl:text-2xl"
@@ -46,7 +49,7 @@ const { project } = Astro.props
           )
         }
 
-        <h2 class="font-bold text-3xl 2xl:text-6xl">Tecnologías:</h2>
+        <SubTitle>Tecnologías:</SubTitle>
 
         <ul class="flex flex-wrap gap-3 pl-2">
           {

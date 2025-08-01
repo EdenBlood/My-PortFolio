@@ -3,7 +3,7 @@ import type { IProject } from '../data/projects'
 const { project } = Astro.props as { project: IProject }
 ---
 
-<article class="shadow-lg shadow-black rounded-2xl overflow-hidden group">
+<article class="shadow-lg shadow-black/80 rounded-2xl overflow-hidden group">
   <a
     class="flex flex-col w-full h-64 2xl:h-80 bg-gray-card cursor-pointer overflow-hidden"
     href={`/project/${project.slug}`}
