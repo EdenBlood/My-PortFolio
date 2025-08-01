@@ -70,7 +70,12 @@ const projects: IProject[] = [
           <p>Colaborador: martin@correo.com</p>
           <p>Contraseña: 55115511</p>
         </div>`,
-    images: ['/projects/up-task-1.png'],
+    images: [
+      '/projects/up-task-1.png',
+      '/projects/up-task-2.png',
+      '/projects/up-task-3.png',
+      '/projects/up-task-4.png'
+    ],
     technologies: [
       'React',
       'React Router Dom',
@@ -83,7 +88,7 @@ const projects: IProject[] = [
       'MongoDB',
       'Thunder Client'
     ],
-    url: '',
+    url: 'https://up-task-frontend-henna-sigma.vercel.app/',
     id: 1
   },
   {

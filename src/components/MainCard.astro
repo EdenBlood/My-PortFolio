@@ -4,6 +4,12 @@ import LinkedIn from './Icons/LinkedIn.astro'
 import GitHub from './Icons/GitHub.astro'
 import Curriculum from './Icons/Curriculum.astro'
 import DisplayTag from './DisplayTag'
+
+interface MainCardProps {
+  url: string
+}
+
+const { url } = Astro.props as MainCardProps
 ---
 
 <header
@@ -69,5 +75,5 @@ import DisplayTag from './DisplayTag'
     </a>
   </nav>
 
-  <ContactButton class="w-full md:mx-auto md:w-max px-12 md:px-0" />
+  <ContactButton url={url} class="w-full md:mx-auto md:w-max px-12 md:px-0" />
 </div>

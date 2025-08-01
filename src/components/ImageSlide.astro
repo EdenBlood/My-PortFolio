@@ -1,0 +1,51 @@
+---
+import type { IProject } from '../data/projects'
+
+interface ImageSlideProps {
+  images: IProject['images']
+  name: IProject['name']
+}
+const { images, name } = Astro.props as ImageSlideProps
+---
+
+<div class="relative w-full mx-auto">
+  <img
+    class="block mx-auto w-[90vw] max-w-xl object-cover shadow-lg shadow-black/30 rounded-2xl transition-all duration-500"
+    id="slider-image"
+    src={images[0]}
+    alt={`Imagen del Carrusel`}
+  />
+
+  <!-- Flecha Izquierda -->
+  <button
+    id="prev-btn"
+    class="absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white px-4 py-2 rounded-r hover:bg-black/50 cursor-pointer transform hover:scale-110 duration-300 shadow-lg shadow-black/70"
+  >
+    ←
+  </button>
+
+  <!-- Flecha Derecha -->
+  <button
+    id="next-btn"
+    class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white px-4 py-2 rounded-l hover:bg-black/50 cursor-pointer transform hover:scale-110 duration-300 shadow-lg shadow-black/70"
+    >→
+  </button>
+</div>
+
+<script type="module" is:inline>
+  const images = JSON.parse(JSON.stringify(images))
+  let index = 0
+  const imageEl = document.getElementById('slider-image')
+  const prevBtn = document.getElementById('prev-btn')
+  const nextBtn = document.getElementById('next-btn')
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - (1 % images.length)) % images.length
+    imageEl.src = images[index]
+  })
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % images.length
+    imageEl.src = images[index]
+  })
+</script>

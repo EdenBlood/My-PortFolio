@@ -15,3 +15,5 @@
 - [ ] Mejorar accesibilidad (contraste, ARIA)
 
 ## ✅ Completado
+
+- [ ]

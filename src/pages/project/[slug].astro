@@ -3,6 +3,7 @@ import projects from '../../data/projects'
 import type { GetStaticPaths } from 'astro'
 import TitleSection from '../../components/TitleSection.astro'
 import Layout from '../../layouts/projectLayout.astro'
+import ImageSlide from '../../components/ImageSlide.astro'
 
 export const getStaticPaths = (() => {
   const pages = projects
@@ -21,12 +22,9 @@ const { project } = Astro.props
   <div class="w-full lg:w-2/3 2xl:w-4/7 py-[2.5vh] md:py-[5vh]">
     <article class="flex flex-col gap-8 items-start">
       <TitleSection>{project.name}</TitleSection>
-      <div class="overflow-hidden">
-        <img
-          class="h-60 2xl:h-80 w-full rounded-xl"
-          src={`${project.images[0]}`}
-        />
-      </div>
+
+      <ImageSlide images={project.images} name={project.name} />
+
       <div class="space-y-3 2xl:space-y-4">
         <h2 class="font-bold text-3xl 2xl:text-6xl">Descripción:</h2>
         <div set:html={project.description} class="text-md 2xl:text-2xl pl-2" />
