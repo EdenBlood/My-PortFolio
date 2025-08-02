@@ -10,6 +10,8 @@ const { project } = Astro.props as { project: IProject }
   >
     <div class="h-2/3 overflow-hidden">
       <img
+        loading="lazy"
+        decoding="async"
         class="block w-full h-full object-cover object-center group-hover:scale-125 transform will-change-transform transition-all duration-500"
         src={project.images[0]}
         alt={`Proyecto ${project.name}`}
