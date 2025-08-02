@@ -9,12 +9,12 @@ const { images, name } = Astro.props as ImageSlideProps
 ---
 
 <div
-  class="grid grid-cols-2 lg:flex lg:h-[400px] rounded-2xl overflow-hidden mb-6 shadow-lg shadow-black/50"
+  class="grid grid-cols-2 lg:flex lg:h-[300px] rounded-2xl overflow-hidden mb-6 shadow-lg shadow-black/50"
 >
   {
     images.map((image, index: number) => (
       <img
-        class="project-image scale-110 lg:scale-100 lg:transform lg:duration-300 lg:ease-in-out lg:shadow-2xl lg:shadow-black"
+        class=" project-image scale-110 lg:scale-100  lg:shadow-2xl lg:shadow-black"
         src={image}
         alt={`${name} ${index}`}
       />
