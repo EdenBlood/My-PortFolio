@@ -4,18 +4,32 @@ import TitleSection from './TitleSection.astro'
 import Alert from './Alert'
 import emailjs from '@emailjs/browser'
 
-export default function Contact() {
-  const form = useRef(null)
+interface MailFormData {
+  name: string
+  email: string
+  message: string
+}
 
-  const [mailInfo, setMailInfo] = useState({
+interface IAlert {
+  msg: string
+  error: boolean
+}
+
+export default function Contact() {
+  const form = useRef<HTMLFormElement>(null)
+
+  const [mailInfo, setMailInfo] = useState<MailFormData>({
     name: '',
     email: '',
     message: ''
   })
 
-  const [alert, setAlert] = useState({})
+  const [alert, setAlert] = useState<IAlert>({
+    msg: '',
+    error: false
+  })
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const resetForm = () => {
     setMailInfo({
@@ -25,21 +39,23 @@ export default function Contact() {
     })
   }
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setMailInfo({
       ...mailInfo,
       [e.target.name]: e.target.value
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-
     // Validar que todos los campos tengan información
     if (Object.values(mailInfo).some((value) => String(value).trim() === '')) {
       setAlert({ msg: 'Todos los campos son obligatorios', error: true })
-      setTimeout(() => setAlert({}), 4000)
+      setTimeout(() => setAlert({ msg: '', error: false }), 4000)
+      setLoading(false)
       return
     }
 
@@ -51,18 +67,15 @@ export default function Contact() {
         import.meta.env.PUBLIC_PUBLIC_KEY
       )
 
-      console.log('Éxito:', result.text)
-
       setAlert({ msg: 'Correo enviado correctamente', error: false })
 
       resetForm()
       setLoading(false)
-      setTimeout(() => setAlert({}), 4000)
+      setTimeout(() => setAlert({ msg: '', error: false }), 4000)
     } catch (error) {
-      console.error('Error al enviar correo:', error)
       setAlert({ msg: 'Hubo un error al enviar el correo', error: true })
       setLoading(false)
-      setTimeout(() => setAlert({}), 4000)
+      setTimeout(() => setAlert({ msg: '', error: false }), 4000)
     }
   }
 
@@ -71,27 +84,34 @@ export default function Contact() {
       <form
         ref={form}
         onSubmit={handleSubmit}
-        className="bg-gray-card p-8 rounded-2xl space-y-4 2xl:space-y-6"
+        className="bg-gray-card p-8 rounded-2xl space-y-4 2xl:space-y-6 shadow-lg shadow-black/50"
       >
         <legend className="text-lg md:text-xl 2xl:text-4xl font-semibold mb-10">
           Llena el formulario y nos mantendremos en{' '}
           <span className="text-fuchsia-500">contacto via Mail.</span>
         </legend>
 
-        {alert.msg && <Alert alert={alert} />}
+        {alert.msg && <Alert msg={alert.msg} error={alert.error} />}
 
         <div className="space-y-2 2xl:space-y-3">
           <Label id="name" camp="Nombre" />
           <input
             value={mailInfo.name}
             onChange={handleChange}
-            className="border border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl"
+            disabled={loading}
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             type="text"
             id="name"
             name="name"
-            required
             placeholder="Tú Nombre..."
+            maxLength={20}
           />
+          <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
+            <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
+              i
+            </span>
+            Ingresa un nombre valido
+          </p>
         </div>
 
         <div className="space-y-2 2xl:space-y-3">
@@ -99,13 +119,20 @@ export default function Contact() {
           <input
             value={mailInfo.email}
             onChange={handleChange}
-            className="border border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl"
+            disabled={loading}
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             type="email"
             id="email"
             name="email"
-            required
             placeholder="Tú Email de Contacto..."
+            maxLength={30}
           />
+          <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
+            <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
+              i
+            </span>
+            Ingresa un mail valido
+          </p>
         </div>
 
         <div className="space-y-2 2xl:space-y-3">
@@ -113,12 +140,18 @@ export default function Contact() {
           <textarea
             value={mailInfo.message}
             onChange={handleChange}
-            className="border border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl"
+            disabled={loading}
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             name="message"
             id="message"
-            required
-            placeholder="Información que va a contener el Mail..."
+            placeholder="Información que va a contener el Email..."
           />
+          <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
+            <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
+              i
+            </span>
+            Ingresa un mensaje valido
+          </p>
         </div>
 
         <div>

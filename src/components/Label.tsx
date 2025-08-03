@@ -1,6 +1,11 @@
 import DisplayTag from './DisplayTag'
 
-export default function Label({ id, camp }) {
+interface LabelProps {
+  id: string
+  camp: string
+}
+
+export default function Label({ id, camp }: LabelProps) {
   return (
     <>
       <div className=" relative group w-fit">

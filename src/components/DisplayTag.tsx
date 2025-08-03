@@ -1,4 +1,9 @@
-export default function DisplayTag({ text, ubication }) {
+interface DisplayTagProps {
+  text: string
+  ubication: string
+}
+
+export default function DisplayTag({ text, ubication }: DisplayTagProps) {
   return (
     <>
       <span
