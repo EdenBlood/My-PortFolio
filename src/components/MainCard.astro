@@ -13,13 +13,18 @@ const { url } = Astro.props as MainCardProps
 ---
 
 <header
-  class="mx-12 md:mx-0 lg:mx-12 md:w-2/3 lg:w-auto rounded-xl h-full overflow-hidden"
+  class="relative mx-12 md:mx-0 lg:mx-12 md:w-2/3 lg:w-auto rounded-xl h-full overflow-hidden"
 >
   <img
     class="object-cover rounded-xl"
     src="/perfil.webp"
     alt="Foto de Franco Montechiani"
   />
+  <div
+    class="absolute inset-0 rounded-xl pointer-events-none
+            bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,.4)_100%)] z-50"
+  >
+  </div>
 </header>
 
 <div
@@ -82,4 +87,10 @@ const { url } = Astro.props as MainCardProps
   </nav>
 
   <ContactButton url={url} class="w-full md:mx-auto md:w-max px-12 md:px-0" />
+</div>
+
+<div
+  class="absolute inset-0 rounded-xl pointer-events-none
+            bg-[radial-gradient(circle_at_center,transparent_70%,rgba(0,0,0,0.1)_100%)]"
+>
 </div>
