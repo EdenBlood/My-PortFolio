@@ -48,7 +48,7 @@ strong {
   height: 100%;
   background-size: 161px;
   background-repeat: repeat;
-  background-image: url('/Noise.png');
+  background-image: url('/Noise.webp');
   opacity: 0.05;
   border-radius: 0;
 }
@@ -99,8 +99,8 @@ strong {
     flex-grow: 1;
     object-fit: cover;
     opacity: 0.8;
-    transition: all .5s;
-    
+    transition: all 0.5s;
+
     &:hover {
       flex-grow: 3;
       opacity: 1;

@@ -70,10 +70,10 @@ const projects: IProject[] = [
     </div>
   `,
     images: [
-      '/projects/zniply-1.png',
-      '/projects/zniply-2.png',
-      '/projects/zniply-3.png',
-      '/projects/zniply-4.png'
+      '/projects/zniply-1.webp',
+      '/projects/zniply-2.webp',
+      '/projects/zniply-3.webp',
+      '/projects/zniply-4.webp'
     ],
     technologies: [
       'TypeScript',
@@ -153,10 +153,10 @@ const projects: IProject[] = [
           <p>Contraseña: 55115511</p>
         </div>`,
     images: [
-      '/projects/up-task-1.png',
-      '/projects/up-task-2.png',
-      '/projects/up-task-3.png',
-      '/projects/up-task-4.png'
+      '/projects/up-task-1.webp',
+      '/projects/up-task-2.webp',
+      '/projects/up-task-3.webp',
+      '/projects/up-task-4.webp'
     ],
     technologies: [
       'React',
@@ -242,7 +242,7 @@ const projects: IProject[] = [
           </p>
         </div>
     `,
-    images: ['/projects/apv-veterinaria-1.png'],
+    images: ['/projects/apv-veterinaria-1.webp'],
     technologies: [
       'React',
       'React Router Dom',

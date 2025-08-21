@@ -17,6 +17,7 @@ const { images, name } = Astro.props as ImageSlideProps
         class=" project-image scale-110 lg:scale-100 lg:shadow-2xl lg:shadow-black"
         src={image}
         alt={`${name} ${index}`}
+        loading="lazy"
       />
     ))
   }
