@@ -3,7 +3,7 @@ export interface IProject {
   slug: string
   smallDescription: string
   description: string
-  learnings
+  learnings: string
   userData: string
   images: string[]
   technologies: string[]
@@ -12,6 +12,88 @@ export interface IProject {
 }
 
 const projects: IProject[] = [
+  {
+    name: 'Zniply',
+    slug: 'zniply',
+    smallDescription: 'Gestor de snippets online',
+    description: `
+    <p class="mb-4">
+      <strong>Zniply</strong> es mi proyecto personal: un gestor de
+      <strong>snippets</strong> pensado para desarrolladores que olvidamos
+      estructuras poco frecuentes. Lo hice <strong>completamente solo</strong>,
+      cuidando hasta el más mínimo detalle. Es un proyecto mediano-grande con
+      <strong>stack MERN</strong> y TypeScript en todo el flujo.
+    </p>
+    <p class="mb-2">
+      Funcionalidades clave: <strong>autenticación tradicional</strong> y
+      <strong>OAuth (GitHub / Google via Passport)</strong>, creación y edición
+      de snippets con <strong>TipTap</strong> (soporte de bloques de código y
+      resaltado), favoritos, landing, tutoriales, página de contacto y todo el proyecto contiene SEO.
+    </p>
+    <p class="mb-2">
+      Soporta hasta <strong>3 snippets como invitado</strong>. Al iniciar sesión
+      se te pregunta si querés conservarlos, eliminarlos o asignarlos a otra
+      cuenta — esa decisión no se vuelve a pedir hasta que te vuelvas a
+      <strong>loguear</strong>. La búsqueda está <strong>indexada</strong> y los
+      resultados se priorizan por cantidad de <strong>likes</strong> (los más
+      populares aparecen primero).
+    </p>
+    <p class="mb-4">
+      Implementé sanitización, validaciones robustas para contenido de usuario y
+      manejo de sesiones seguro. Lo desplegué el frontend en Vercel y el backend en Render.
+    </p>
+  `,
+    learnings: `<ul class="list-disc list-inside space-y-2 mb-4">
+      <li class="pl-2">
+        Integración de <strong>OAuth</strong> con <strong>Passport</strong> (Google y GitHub) y su flujo UX.
+      </li>
+      <li class="pl-2">
+        Uso avanzado de <strong>TipTap</strong> para edición de snippets y manejo de bloques de código con highlighting (Prism/Lowlight).
+      </li>
+      <li class="pl-2">
+        Diseñar y ejecutar una <strong>estrategia de migración de datos</strong> para snippets de invitado al crear cuentas (opciones: conservar, eliminar o transferir).
+      </li>
+      <li class="pl-2">
+        Construcción de una <strong>búsqueda indexada</strong> que ordena resultados por likes — diseño de índices y pipeline de consulta para ranking.
+      </li>
+      <li class="pl-2">
+        Fortalecimiento de la seguridad en contenido generado por usuarios usando <strong>sanitize-html</strong> y validaciones server-side.
+      </li>
+      <li class="pl-2">
+        Prácticas de optimización y escalabilidad en un proyecto full-stack desarrollado íntegramente por mí: rendimiento, detalles UX y entrega producible.
+      </li>
+    </ul>`,
+    userData: `
+    <div class="mb-2 space-y-2">
+      <p><strong>Cuenta de prueba:</strong> nico@correo.com</p>
+      <p><strong>Contraseña:</strong> 55115511</p>
+    </div>
+  `,
+    images: [
+      '/projects/zniply-1.png',
+      '/projects/zniply-2.png',
+      '/projects/zniply-3.png',
+      '/projects/zniply-4.png'
+    ],
+    technologies: [
+      'TypeScript',
+      'Zod',
+      'Tailwind CSS',
+      'React',
+      'React Query',
+      'React Router Dom',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Mongoose',
+      'Passport',
+      'express-validator',
+      'express-session',
+      'sanitize-html'
+    ],
+    url: 'https://zniply.vercel.app/',
+    id: 1
+  },
   {
     name: 'UpTask',
     slug: 'up-task',
@@ -89,7 +171,7 @@ const projects: IProject[] = [
       'Thunder Client'
     ],
     url: 'https://up-task-frontend-henna-sigma.vercel.app/',
-    id: 1
+    id: 2
   },
   {
     name: 'APV Veterinaria',
@@ -170,7 +252,7 @@ const projects: IProject[] = [
       'Postman'
     ],
     url: 'https://veterinaria-administrador-pacientes.netlify.app',
-    id: 2
+    id: 3
   }
 ]
 
