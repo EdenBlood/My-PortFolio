@@ -9,6 +9,9 @@
   --color-primary: #1e1b2e;
   --color-container: #2a263d;
   --color-gray-card: rgb(39, 40, 41);
+
+  /** font-size */
+  --text-c-3xl: 2.5rem;
 }
 
 *,
