@@ -1,6 +1,5 @@
-import { useRef, useState } from 'react'
+import { useRef, useState } from 'preact/hooks'
 import Label from './Label'
-import TitleSection from './TitleSection.astro'
 import Alert from './Alert'
 import emailjs from '@emailjs/browser'
 

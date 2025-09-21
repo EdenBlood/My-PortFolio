@@ -13,23 +13,28 @@ const { url } = Astro.props as MainCardProps
 ---
 
 <header
-  class="mx-12 md:mx-0 lg:mx-12 md:w-2/3 lg:w-auto rounded-xl h-full overflow-hidden"
+  class="relative mx-8 md:mx-0 lg:mx-10 2xl:mx-14 md:w-2/3 lg:w-auto rounded-xl 2xl:rounded-2xl w-auto h-full overflow-hidden"
 >
   <img
-    class="object-cover rounded-xl"
+    class="object-cover w-full h-auto lg:h-auto md:h-full rounded-xl"
     src="/perfil.webp"
     alt="Foto de Franco Montechiani"
   />
+  <div
+    class="absolute inset-0 rounded-xl pointer-events-none
+            bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,.4)_100%)] z-50"
+  >
+  </div>
 </header>
 
 <div
-  class="md:w-1/3 lg:w-auto w-full h-full flex flex-col justify-between md:justify-evenly lg:justify-between text-center gap-4"
+  class="md:w-1/3 lg:w-auto w-full h-full flex flex-col justify-evenly text-center gap-4"
 >
-  <h1 class="text-3xl md:text-5xl lg:text-3xl 2xl:text-6xl font-bold">
+  <h1 class="text-c-3xl md:text-5xl lg:text-3xl 2xl:text-6xl font-bold">
     Franco Montechiani
   </h1>
   <div
-    class="font-extralight text-md md:text-xl lg:text-md 2xl:text-3xl space-y-1"
+    class="font-extralight text-xl md:text-xl lg:text-md 2xl:text-3xl space-y-1"
   >
     <h2>Desarrollador Web FullStack</h2>
     <p>Rosario, <span class="text-sky-200">Argentina</span></p>
@@ -43,7 +48,7 @@ const { url } = Astro.props as MainCardProps
       rel="noopener noreferrer"
     >
       <LinkedIn
-        class="size-6 md:size-12 lg:size-6 2xl:size-12 overflow-hidden"
+        class="size-10 md:size-12 lg:size-6 2xl:size-12 overflow-hidden"
       />
       <DisplayTag
         client:load
@@ -58,7 +63,9 @@ const { url } = Astro.props as MainCardProps
       target="_blank"
       rel="noopener noreferrer"
     >
-      <GitHub class="size-6 md:size-12 lg:size-6 2xl:size-12 overflow-hidden" />
+      <GitHub
+        class="size-10 md:size-12 lg:size-6 2xl:size-12 overflow-hidden"
+      />
       <DisplayTag
         client:load
         text="Mi GitHub"
@@ -68,10 +75,12 @@ const { url } = Astro.props as MainCardProps
 
     <a
       class="relative group p-1.5 rounded-full bg-blue-900 hover:scale-125 transform duration-300"
-      href="#"
+      href="https://drive.google.com/file/d/1NS2SMBzjOrvC50bErn3hYRS8LozX9CN-/view?usp=drive_link"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <Curriculum
-        class="size-6 md:size-12 lg:size-6 2xl:size-12 overflow-hidden"
+        class="size-10 md:size-12 lg:size-6 2xl:size-12 overflow-hidden"
       />
       <DisplayTag
         client:load
@@ -82,4 +91,10 @@ const { url } = Astro.props as MainCardProps
   </nav>
 
   <ContactButton url={url} class="w-full md:mx-auto md:w-max px-12 md:px-0" />
+</div>
+
+<div
+  class="absolute inset-0 rounded-xl pointer-events-none
+            bg-[radial-gradient(circle_at_center,transparent_70%,rgba(0,0,0,0.1)_100%)]"
+>
 </div>

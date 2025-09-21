@@ -10,6 +10,9 @@
   --color-primary: #1e1b2e;
   --color-container: #2a263d;
   --color-gray-card: rgb(39, 40, 41);
+
+  /** font-size */
+  --text-c-3xl: 2.5rem;
 }
 
 body {
@@ -40,7 +43,7 @@ strong {
   height: 100%;
   background-size: 161px;
   background-repeat: repeat;
-  background-image: url('/Noise.png');
+  background-image: url('/Noise.webp');
   opacity: 0.05;
   border-radius: 0;
 }
