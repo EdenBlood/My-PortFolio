@@ -1,0 +1,41 @@
+---
+import ContactButton from '@/components/ui/ContactButton.astro'
+import NavIcons from '@/components/principalCard/NavIcons.astro'
+import HeaderImage from '@/components/principalCard/HeaderImage.astro'
+
+interface Props {
+  url: string
+  hidden: boolean
+  title_main_card: string
+}
+
+const { url, hidden, title_main_card } = Astro.props
+---
+
+<main class={`${hidden ? 'hidden lg:flex' : 'flex'} main-card-container`}>
+  <HeaderImage />
+
+  <div
+    class="lg:w-auto w-full h-auto flex flex-col text-center gap-6 lg:gap-4 2xl:gap-10"
+  >
+    <h1 class="text-6xl lg:text-4xl 2xl:text-c-5xl font-bold">
+      Franco Montechiani
+    </h1>
+    <div
+      class="font-extralight text-xl md:text-2xl lg:text-lg 2xl:text-3xl space-y-1"
+    >
+      <h2>{title_main_card}</h2>
+      <p>Rosario, <span class="text-sky-200">Argentina</span></p>
+    </div>
+
+    <NavIcons />
+
+    <ContactButton url={url} class="w-full lg:mx-auto lg:w-max px-12 lg:px-0" />
+  </div>
+
+  <div
+    class="absolute inset-0 rounded-xl pointer-events-none
+              bg-[radial-gradient(circle_at_center,transparent_70%,rgba(0,0,0,0.1)_100%)]"
+  >
+  </div>
+</main>
