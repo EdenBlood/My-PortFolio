@@ -1,13 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import Presentation from '@/components/Presentation.astro'
-import Projects from '@/components/Projects.astro'
-import Experience from '@/components/Experience.astro'
-import Contact from '@/components/Contact.jsx'
+import Presentation from '@/components/portfolio/Presentation.astro'
+import Projects from '@/components/portfolio/Projects.astro'
+import Experience from '@/components/portfolio/Experience.astro'
+import Contact from '@/components/portfolio/Contact.jsx'
 import TitleSection from '@/components/ui/TitleSection.astro'
 ---
 
-<Layout hidden={false} , titleSlug="Full Stack Developer">
+<Layout
+  hidden={false}
+  titleSlug="Full Stack Developer"
+  title_main_card="Desarrollador Web FullStack"
+>
   <section class="section reveal">
     <Presentation />
   </section>
