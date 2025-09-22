@@ -1,6 +1,6 @@
 import { useRef, useState } from 'preact/hooks'
-import Label from './Label'
-import Alert from './Alert'
+import Label from '@/components/ui/Label'
+import Alert from '@/components/ui/Alert'
 import emailjs from '@emailjs/browser'
 
 interface MailFormData {
@@ -85,7 +85,7 @@ export default function Contact() {
         onSubmit={handleSubmit}
         className="bg-gray-card p-8 rounded-2xl space-y-4 2xl:space-y-6 shadow-lg shadow-black/50"
       >
-        <legend className="text-lg md:text-xl 2xl:text-4xl font-semibold mb-10">
+        <legend className="text-lg md:text-4xl lg:text-xl 2xl:text-4xl font-semibold mb-10">
           Llena el formulario y nos mantendremos en{' '}
           <span className="text-fuchsia-500">contacto via Mail.</span>
         </legend>
@@ -98,7 +98,7 @@ export default function Contact() {
             value={mailInfo.name}
             onChange={handleChange}
             disabled={loading}
-            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-base md:text-xl lg:text-base 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             type="text"
             id="name"
             name="name"
@@ -119,7 +119,7 @@ export default function Contact() {
             value={mailInfo.email}
             onChange={handleChange}
             disabled={loading}
-            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-base md:text-xl lg:text-base 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             type="email"
             id="email"
             name="email"
@@ -140,7 +140,7 @@ export default function Contact() {
             value={mailInfo.message}
             onChange={handleChange}
             disabled={loading}
-            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-md 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
+            className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-base md:text-xl lg:text-base 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             name="message"
             id="message"
             placeholder="Información que va a contener el Email..."
@@ -156,7 +156,7 @@ export default function Contact() {
         <div>
           <input
             type="submit"
-            className="block mx-auto cursor-pointer text-center bg-purple-500 hover:bg-purple-700 disabled:bg-purple-500/30 disabled:hover:bg-purple-500/30 disabled:cursor-not-allowed transition-colors duration-300 font-semibold text-white py-3 px-10 rounded-lg 2xl:text-3xl"
+            className="block mx-auto cursor-pointer text-center bg-purple-600 not-disabled:hover:bg-purple-700 disabled:bg-purple-500/30  disabled:cursor-not-allowed transition-colors duration-300 font-medium text-white py-3 px-10 rounded-lg md:text-2xl lg:text-lg 2xl:text-3xl"
             disabled={loading}
             value={loading ? 'Enviando...' : 'Enviar Mail'}
           />
