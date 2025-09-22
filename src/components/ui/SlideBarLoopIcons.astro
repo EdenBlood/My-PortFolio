@@ -1,0 +1,30 @@
+---
+import ReactIcon from '@/assets/icons/react.svg'
+import NodeJsIcon from '@/assets/icons/nodejs.svg'
+import ExpressIcon from '@/assets/icons/expressjs.svg'
+import MongoDBIcon from '@/assets/icons/mongodb.svg'
+import PostgreSQLIcon from '@/assets/icons/postgresql.svg'
+import TailwindIcon from '@/assets/icons/tailwindcss.svg'
+import JavaScriptIcon from '@/assets/icons/javascript.svg'
+import TypeScriptIcon from '@/assets/icons/typescript.svg'
+import AstroIcon from '@/assets/icons/astro.svg'
+import NextJsIcon from '@/assets/icons/nextjs.svg'
+import PHPIcon from '@/assets/icons/php.svg'
+import SliderItem from './SliderItem.astro'
+---
+
+<SliderItem svg={JavaScriptIcon.src} text="JavaScript" />
+<SliderItem svg={TypeScriptIcon.src} text="TypeScript" />
+<SliderItem svg={TailwindIcon.src} text="Tailwind css" />
+<SliderItem svg={ReactIcon.src} text="React" />
+<SliderItem svg={NodeJsIcon.src} text="Node.js" />
+<SliderItem svg={ExpressIcon.src} text="Express.js" />
+<SliderItem svg={MongoDBIcon.src} text="MongoDB" />
+<SliderItem svg={PostgreSQLIcon.src} text="PostgreSQL" />
+<SliderItem svg={AstroIcon.src} text="Astro" className="astro" />
+<SliderItem
+  svg={NextJsIcon.src}
+  className="rounded-full border-1 border-white bg-white"
+  text="Next.js"
+/>
+<SliderItem svg={PHPIcon.src} text="PHP" />

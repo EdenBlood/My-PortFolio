@@ -1,0 +1,12 @@
+---
+interface SubTitleProps {
+  class?: string
+}
+const { class: classParams } = Astro.props as SubTitleProps
+---
+
+<h2
+  class={`font-bold text-3xl md:text-6xl lg:text-5xl 2xl:text-6xl text-purple-500 ${classParams}`}
+>
+  <slot />
+</h2>

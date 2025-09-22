@@ -1,0 +1,12 @@
+---
+interface TitleSectionProps {
+  class?: string
+}
+const { class: classParams } = Astro.props as TitleSectionProps
+---
+
+<h1
+  class={`text-5xl md:text-7xl lg:text-6xl 2xl:text-8xl font-semibold mb-10 ${classParams}`}
+>
+  <slot />
+</h1>

@@ -1,0 +1,20 @@
+---
+import SlideBarLoopIcons from '@/components/ui/SlideBarLoopIcons.astro'
+---
+
+<div class="slider-container relative my-1">
+  <div
+    class="absolute -left-1 top-0 w-20 h-full bg-gradient-to-r from-[#0d0e15]/90 to-transparent z-10 pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute -right-1 top-0 w-20 h-full bg-gradient-to-l from-[#0d0e15]/90 to-transparent z-10 pointer-events-none"
+  >
+  </div>
+  <div class="slider">
+    <div class="slide-track">
+      <SlideBarLoopIcons />
+      <SlideBarLoopIcons />
+    </div>
+  </div>
+</div>
