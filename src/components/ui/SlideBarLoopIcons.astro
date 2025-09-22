@@ -10,7 +10,8 @@ import TypeScriptIcon from '@/assets/icons/typescript.svg'
 import AstroIcon from '@/assets/icons/astro.svg'
 import NextJsIcon from '@/assets/icons/nextjs.svg'
 import PHPIcon from '@/assets/icons/php.svg'
-import SliderItem from './SliderItem.astro'
+import WordpressIcon from '@/assets/icons/wordpress.svg'
+import SliderItem from '@/components/ui/SliderItem.astro'
 ---
 
 <SliderItem svg={JavaScriptIcon.src} text="JavaScript" />
@@ -24,7 +25,12 @@ import SliderItem from './SliderItem.astro'
 <SliderItem svg={AstroIcon.src} text="Astro" className="astro" />
 <SliderItem
   svg={NextJsIcon.src}
-  className="rounded-full border-1 border-white bg-white"
   text="Next.js"
+  className="rounded-full border-1 border-white bg-white"
 />
 <SliderItem svg={PHPIcon.src} text="PHP" />
+<SliderItem
+  svg={WordpressIcon.src}
+  text="Wordpress"
+  className="rounded-full border-1 border-white bg-white"
+/>
