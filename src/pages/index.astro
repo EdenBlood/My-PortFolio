@@ -1,8 +1,32 @@
 ---
-import MainContainer from '../components/MainContainer.astro'
-import Layout from '../layouts/Layout.astro'
+import Layout from '@/layouts/Layout.astro'
+import Presentation from '@/components/Presentation.astro'
+import Projects from '@/components/Projects.astro'
+import Experience from '@/components/Experience.astro'
+import Contact from '@/components/Contact.jsx'
+import TitleSection from '@/components/ui/TitleSection.astro'
 ---
 
-<Layout>
-  <MainContainer />
+<Layout hidden={false} , titleSlug="Full Stack Developer">
+  <section class="section reveal">
+    <Presentation />
+  </section>
+
+  <section id="projects" class="section reveal min-h-screen">
+    <TitleSection>Proyectos</TitleSection>
+    <Projects />
+  </section>
+
+  <section
+    id="experience"
+    class="section reveal flex flex-col justify-center lg:gap-10"
+  >
+    <TitleSection>Experiencia en otro rubro</TitleSection>
+    <Experience />
+  </section>
+
+  <section id="contact" class="section reveal">
+    <TitleSection>Contacto</TitleSection>
+    <Contact client:visible />
+  </section>
 </Layout>
