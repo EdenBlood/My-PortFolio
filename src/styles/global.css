@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
 
 @font-face {
   font-family: 'Outfit';
@@ -11,16 +10,22 @@
   --color-container: #2a263d;
   --color-gray-card: rgb(39, 40, 41);
 
-  /** font-size */
-  --text-c-3xl: 2.5rem;
+  --default-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+@utility main-card-container {
+  @apply lg:flex flex-col flex-nowrap justify-between items-center h-[95vh] lg:h-[90vh] relative top-[2.5vh] lg:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 lg:py-8 2xl:py-14 2xl:px-4 rounded-2xl w-full self-start lg:flex-none lg:w-92 2xl:w-130 gap-6 lg:gap-2 shadow-lg shadow-black/80;
+}
+
+@utility text-c-3xl {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+@utility text-c-5xl {
+  font-size: 3.25rem;
 }
 
 body {
-  font-family:
-    'Outfit',
-    system-ui,
-    -apple-system,
-    sans-serif;
   background: radial-gradient(ellipse at bottom, #1e1b2e 0%, #090a0f 100%);
 }
 
@@ -28,7 +33,11 @@ strong {
   @apply text-purple-400;
 }
 
-.texture {
+@utility astro {
+  filter: drop-shadow(0 0 0.5px white);
+}
+
+@utility texture {
   flex: none;
   height: 100%;
   left: 0;
@@ -38,7 +47,7 @@ strong {
   width: 100%;
   z-index: 50;
 }
-.texture-child {
+@utility texture-child {
   width: 100%;
   height: 100%;
   background-size: 161px;
@@ -47,26 +56,28 @@ strong {
   opacity: 0.05;
   border-radius: 0;
 }
-.section {
+@utility section {
   padding: 5vh 0;
-}
-.section:first-of-type {
-  padding-top: 0;
-}
-.section:last-of-type {
-  padding-bottom: 0;
+  &:first-of-type {
+    padding-top: 0;
+  }
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 }
 
-.animate-fade-in-down {
+@utility animate-fade-in-down {
   animation: fade-in-down 1s ease-out forwards;
 }
 
-.arrow {
+@utility arrow {
   transition: transform 0.5s ease;
 }
 
-.btn:hover .arrow {
-  transform: translateX(1rem);
+@utility btn {
+  &:hover .arrow {
+    transform: translateX(1rem);
+  }
 }
 
 @keyframes fade-in-down {
@@ -77,14 +88,6 @@ strong {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
   }
 }
 
@@ -106,26 +109,36 @@ strong {
 }
 
 /* Slice Bar */
-.slide-container {
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@utility slider-container {
   overflow: hidden;
   white-space: nowrap;
-  background-color: #1e1e1e;
   padding: 1rem 0;
 }
+
 .slider-container:hover .slide-track {
   animation-play-state: paused;
 }
-.slider {
+
+@utility slider {
   display: flex;
   align-items: center;
   height: 100%;
 }
-.slide-track {
+@utility slide-track {
   display: flex;
   width: max-content;
-  animation: scroll 12s linear infinite;
+  animation: scroll 15s linear infinite;
 }
-.slide {
+@utility slide {
   flex: 0 0 auto;
   padding: 0 2rem;
   font-size: 1.25rem;
@@ -135,14 +148,23 @@ strong {
 /* Estrellas pequeñas */
 #stars,
 #stars2,
-#stars3 {
+#stars3,
+#stars4,
+#stars5,
+#stars6,
+#stars7,
+#stars8,
+#stars9,
+#stars10,
+#stars11,
+#stars12 {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: transparent;
-  z-index: 0;
+  z-index: -1;
 }
 
 #stars {
@@ -160,7 +182,7 @@ strong {
     1300px 1700px white;
   width: 1px;
   height: 1px;
-  animation: animStar 20s linear infinite;
+  animation: animStar 13s linear infinite;
 }
 
 #stars2 {
@@ -174,7 +196,7 @@ strong {
     1300px 1000px white;
   width: 2px;
   height: 2px;
-  animation: animStar 30s linear infinite;
+  animation: animStar 39s linear infinite;
 }
 
 #stars3 {
@@ -185,7 +207,7 @@ strong {
     1000px 1600px white;
   width: 3px;
   height: 3px;
-  animation: animStar 60s linear infinite;
+  animation: animStar 25s linear infinite;
 }
 
 #stars4 {
@@ -201,14 +223,7 @@ strong {
     1080px 3300px white;
   width: 1px;
   height: 1px;
-  animation: animStar 80s linear infinite;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: transparent;
-  z-index: 0;
+  animation: animStar 15s linear infinite;
 }
 
 #stars5 {
@@ -222,14 +237,7 @@ strong {
     1380px 2800px white;
   width: 2px;
   height: 2px;
-  animation: animStar 100s linear infinite;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: transparent;
-  z-index: 0;
+  animation: animStar 31s linear infinite;
 }
 
 #stars6 {
@@ -241,21 +249,84 @@ strong {
     1780px 2500px white;
   width: 3px;
   height: 3px;
-  animation: animStar 130s linear infinite;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: transparent;
-  z-index: 0;
+  animation: animStar 48s linear infinite;
 }
 
-@keyframes animStar {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2000px);
-  }
+#stars7 {
+  box-shadow:
+    120px 300px white,
+    450px 600px white,
+    800px 900px white,
+    1100px 1200px white,
+    1350px 1600px white,
+    1700px 200px white,
+    1900px 700px white,
+    2100px 1100px white,
+    2400px 1500px white,
+    2700px 1800px white;
+  width: 1px;
+  height: 1px;
+  animation: animStar 21s linear infinite;
+}
+
+#stars8 {
+  box-shadow:
+    300px 200px white,
+    600px 800px white,
+    1000px 1300px white,
+    1400px 1700px white,
+    1800px 1900px white,
+    2100px 2300px white,
+    2500px 2700px white;
+  width: 2px;
+  height: 2px;
+  animation: animStar 33s linear infinite;
+}
+
+#stars9 {
+  box-shadow:
+    150px 500px white,
+    700px 1000px white,
+    1200px 1600px white,
+    2000px 2100px white;
+  width: 3px;
+  height: 3px;
+  animation: animStar 52s linear infinite;
+}
+
+#stars10 {
+  box-shadow:
+    90px 400px white,
+    500px 900px white,
+    900px 1400px white,
+    1300px 1800px white,
+    1700px 2200px white,
+    2100px 2600px white,
+    2500px 3000px white;
+  width: 1px;
+  height: 1px;
+  animation: animStar 19s linear infinite;
+}
+
+#stars11 {
+  box-shadow:
+    200px 300px white,
+    800px 1200px white,
+    1400px 1800px white,
+    1900px 2300px white,
+    2400px 2800px white;
+  width: 2px;
+  height: 2px;
+  animation: animStar 49s linear infinite;
+}
+
+#stars12 {
+  box-shadow:
+    400px 600px white,
+    900px 1500px white,
+    1600px 2000px white,
+    2200px 2600px white;
+  width: 3px;
+  height: 3px;
+  animation: animStar 43s linear infinite;
 }
