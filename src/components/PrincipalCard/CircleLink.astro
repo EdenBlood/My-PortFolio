@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string
+  className?: string
+}
+const { href, className } = Astro.props
+---
+
+<a
+  class={`${className} relative group p-1.5 rounded-full hover:scale-125 transform duration-300`}
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <slot />
+</a>
