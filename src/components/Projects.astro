@@ -3,6 +3,6 @@ import ProjectItem from './ProjectItem.astro'
 import projects, { type IProject } from '../data/projects'
 ---
 
-<div class="flex flex-col md:grid md:grid-cols-2 gap-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
   {projects.map((project: IProject) => <ProjectItem project={project} />)}
 </div>
