@@ -1,15 +1,16 @@
 ---
-import MainCard from '../components/MainCard.astro'
-import Script from '../components/Script.astro'
-import '../styles/global.css'
-import GlobalLayout from './GlobalLayout.astro'
+import MainCard from '@/components/principalCard/MainCard.astro'
+import Script from '@/components/Script.astro'
+import '@/styles/global.css'
+import GlobalLayout from '@/layouts/GlobalLayout.astro'
 
 interface Props {
   hidden: boolean
   titleSlug: string
+  title_main_card: string
 }
 
-const { hidden, titleSlug } = Astro.props
+const { hidden, titleSlug, title_main_card } = Astro.props
 ---
 
 <!doctype html>
@@ -96,7 +97,11 @@ const { hidden, titleSlug } = Astro.props
       <div
         class="mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-[1550px] relative flex flex-col lg:flex-row w-full min-h-screen gap-18 lg:gap-12 2xl:gap-18 animate-fade-in-down"
       >
-        <MainCard url="#contact" hidden={hidden} />
+        <MainCard
+          url="#contact"
+          hidden={hidden}
+          title_main_card={title_main_card}
+        />
 
         <div
           class="w-full lg:flex-1 lg:min-w-0 py-[2.5vh] lg:py-[5vh] relative"
