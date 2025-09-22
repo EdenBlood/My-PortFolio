@@ -1,18 +1,18 @@
 ---
-import SlideBar from './SlideBar.astro'
+import SlideBar from '@/components/ui/SlideBar.astro'
 import Arrow from './Icons/Arrow.astro'
 import ContactButton from './ContactButton.astro'
 ---
 
 <div
-  class="min-h-[95vh] md:min-h-[90vh] flex flex-col space-y-3 md:space-y-0 md:justify-evenly"
+  class="min-h-[95vh] lg:min-h-[90vh] flex flex-col gap-3 md:gap-6 lg:gap-0 lg:justify-evenly"
 >
-  <h1 class="text-5xl md:text-7xl 2xl:text-8xl font-medium">
+  <h1 class="text-5xl md:text-8xl lg:text-7xl 2xl:text-8xl font-medium">
     Transformando tus ideas en <span class="text-fuchsia-600">Realidad.</span>
   </h1>
 
   <div
-    class="text-lg 2xl:text-3xl font-light text-pretty space-y-0.5 2xl:space-y-2"
+    class="text-lg md:text-2xl lg:text-xl 2xl:text-3xl font-light text-pretty space-y-0.5 md:space-y-2 lg:space-y-0.5 2xl:space-y-2"
   >
     <p>
       Soy un <span class="text-fuchsia-400 font-medium"
@@ -20,9 +20,11 @@ import ContactButton from './ContactButton.astro'
       > al que encanta crear sitios web dinámicos, con algo de complejidad.
     </p>
     <p>
-      Trabajo principalmente con los stacks <span
-        class="text-fuchsia-400 font-medium">MERN y PERN</span
-      >, pero siempre estoy abierto a aprender nuevas tecnologías.
+      Trabajo principalmente con los <span class="text-fuchsia-400 font-medium"
+        >Frameworks: Astro, Next.js</span
+      > y los stacks de <span class="text-fuchsia-400 font-medium"
+        >MERN y PERN</span
+      >, igualmente siempre estoy abierto a aprender nuevas tecnologías.
     </p>
     <p>
       Tengo nivel de <span class="text-fuchsia-400 font-medium">inglés B1</span>
@@ -32,14 +34,14 @@ import ContactButton from './ContactButton.astro'
 
   <div class="flex items-center">
     <p
-      class="text-8xl md:text-7xl 2xl:text-9xl font-bold bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+      class="text-8xl md:text-9xl lg:text-7xl 2xl:text-9xl font-bold bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
     >
       +20
     </p>
 
     <div class="flex flex-col justify-center gap-2 ml-6">
       <p
-        class="text-2xl 2xl:text-5xl font-bold text-pretty bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+        class="text-2xl md:text-4xl lg:text-2xl 2xl:text-5xl font-bold text-pretty bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
       >
         Proyectos realizados
       </p>
@@ -49,21 +51,31 @@ import ContactButton from './ContactButton.astro'
         class="btn hover:text-fuchsia-500 transition-colors cursor-pointer rounded-lg"
       >
         <a
-          class="flex items-center gap-2 text-lg font-light 2xl:text-3xl"
+          class="flex items-center gap-2 text-lg md:text-3xl lg:text-lg font-light 2xl:text-3xl"
           href="#projects"
           >Mis Proyectos
-          <span class="arrow mt-1"><Arrow class="size-6 2xl:size-10" /></span>
+          <span class="arrow mt-1"
+            ><Arrow
+              class="size-6 md:size-10 lg:size-6 2xl:size-10 inline-block lg:block"
+            /></span
+          >
         </a>
       </button>
     </div>
   </div>
-  <div class="space-y-3 2xl:space-y-6 overflow-hidden">
-    <h2 class="text-xl 2xl:text-5xl font-medium">Tecnologías que uso:</h2>
+  <div
+    class="space-y-3 md:space-y-6 lg:space-y-3 2xl:space-y-6 overflow-hidden"
+  >
+    <h2 class="text-xl md:text-4xl lg:text-xl 2xl:text-5xl font-medium">
+      Tecnologías que uso:
+    </h2>
     <SlideBar />
   </div>
 
-  <div class="space-y-5">
-    <p class="text-lg 2xl:text-2xl font-light text-pretty space-y-0.5">
+  <div class="space-y-5 md:space-y-6 lg:space-y-5">
+    <p
+      class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl font-light text-pretty space-y-0.5"
+    >
       Si tienes algún proyecto en mente contáctame y lo proyectamos:
     </p>
     <ContactButton url="#contact" class="w-full md:w-max" />
