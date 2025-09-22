@@ -3,42 +3,34 @@ import DisplayTag from '@/components/ui/DisplayTag'
 import CurriculumIcon from '@/components/Icons/Curriculum.astro'
 import GitHubIcon from '@/assets/icons/github.svg'
 import LinkedInIcon from '@/assets/icons/linkedin.svg'
+import CircleLink from '@/components/principalCard/CircleLink.astro'
 ---
 
 <nav class="flex items-center justify-center gap-4 2xl:gap-8">
-  <a
-    class="relative group p-1.5 rounded-full bg-white hover:scale-125 transform duration-300"
+  <CircleLink
+    className="bg-white"
     href="https://www.linkedin.com/in/franco-montechiani-a4b343354/"
-    target="_blank"
-    rel="noopener noreferrer"
   >
     <LinkedInIcon
       class="size-8 md:size-10 lg:size-6 2xl:size-12 overflow-hidden"
     />
     <DisplayTag client:load text="Mi LinkedIn" ubication="-top-7" />
-  </a>
+  </CircleLink>
 
-  <a
-    class="relative group p-1.5 rounded-full bg-gray-950 hover:scale-125 transform duration-300"
-    href="https://github.com/EdenBlood"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <CircleLink className="bg-gray-950" href="https://github.com/EdenBlood">
     <GitHubIcon
       class="size-8 md:size-10 lg:size-6 2xl:size-12 overflow-hidden"
     />
     <DisplayTag client:load text="Mi GitHub" ubication="-top-7" />
-  </a>
+  </CircleLink>
 
-  <a
-    class="relative group p-1.5 rounded-full bg-blue-900 hover:scale-125 transform duration-300"
+  <CircleLink
     href="https://drive.google.com/file/d/1NS2SMBzjOrvC50bErn3hYRS8LozX9CN-/view?usp=drive_link"
-    target="_blank"
-    rel="noopener noreferrer"
+    className="bg-blue-900"
   >
     <CurriculumIcon
       class="size-8 md:size-10 lg:size-6 2xl:size-12 overflow-hidden"
     />
     <DisplayTag client:load text="Mi Curriculum" ubication="-top-7" />
-  </a>
+  </CircleLink>
 </nav>
