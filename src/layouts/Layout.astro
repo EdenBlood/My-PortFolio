@@ -3,12 +3,19 @@ import MainCard from '../components/MainCard.astro'
 import Script from '../components/Script.astro'
 import '../styles/global.css'
 import GlobalLayout from './GlobalLayout.astro'
+
+interface Props {
+  hidden: boolean
+  titleSlug: string
+}
+
+const { hidden, titleSlug } = Astro.props
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Franco Montechiani Dev Portfolio | Full Stack Developer</title>
+    <title>Franco Montechiani Portfolio Dev | {titleSlug}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
@@ -86,20 +93,19 @@ import GlobalLayout from './GlobalLayout.astro'
 
   <body class="text-slate-50 relative">
     <GlobalLayout>
-      <div class="mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-[1550px]">
+      <div
+        class="mx-auto max-w-[95%] lg:w-5xl xl:w-6xl 2xl:w-[1550px] relative flex flex-col lg:flex-row w-full min-h-screen gap-18 lg:gap-12 2xl:gap-18 animate-fade-in-down"
+      >
+        <MainCard url="#contact" hidden={hidden} />
+
         <div
-          class="relative flex flex-col lg:flex-row w-full min-h-screen gap-18 lg:gap-12 2xl:gap-18 animate-fade-in-down"
+          class="w-full lg:flex-1 lg:min-w-0 py-[2.5vh] lg:py-[5vh] relative"
         >
-          <main
-            class="flex flex-col md:flex-row lg:flex-col flex-nowrap justify-between items-center h-[95vh] md:h-[90vh] relative top-[2.5vh] md:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 md:px-12 lg:py-8 lg:px-0 2xl:py-14 2xl:px-4 rounded-2xl w-full lg:w-1/3 2xl:w-3/7 self-start md:gap-6 lg:gap-0 xl:gap-2 2xl:gap-6 shadow-lg shadow-black/80"
-          >
-            <MainCard url="#contact" />
-          </main>
           <slot />
         </div>
       </div>
     </GlobalLayout>
-
-    <Script />
   </body>
+
+  <Script />
 </html>
