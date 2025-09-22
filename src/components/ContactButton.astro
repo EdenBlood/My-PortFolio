@@ -1,15 +1,18 @@
 ---
-const classParams = Astro.props.class
-const { url } = Astro.props as { url: string }
+interface Props {
+  url: string
+  class?: string
+}
+const { url, class: classParams } = Astro.props
 ---
 
 <div class={`${classParams}`}>
   <button
     type="button"
-    class="w-full px-8 py-3 lg:py-2.5 bg-purple-600 hover:bg-purple-700 transition-colors cursor-pointer rounded-lg font-medium"
+    class="w-full px-8 2xl:px-12 py-3 lg:py-2.5 2xl:py-4 bg-purple-600 hover:bg-purple-700 transition-colors cursor-pointer rounded-lg font-medium"
   >
-    <a href={url} class="text-xl md:text-xl lg:text-md 2xl:text-3xl"
-      >Contactame</a
+    <a href={url} class="text-xl md:text-3xl lg:text-lg 2xl:text-3xl"
+      >Contáctame</a
     >
   </button>
 </div>
