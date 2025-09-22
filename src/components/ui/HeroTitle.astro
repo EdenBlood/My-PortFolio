@@ -1,0 +1,16 @@
+---
+interface Props {
+  colorlessText: string
+  coloredText: string
+}
+
+const { colorlessText, coloredText } = Astro.props
+---
+
+<h1 class="text-5xl md:text-8xl lg:text-7xl 2xl:text-8xl font-medium">
+  {colorlessText}
+  {' '}
+  <span class="text-fuchsia-600">
+    {coloredText}
+  </span>
+</h1>
