@@ -30,7 +30,7 @@ body {
 }
 
 strong {
-  @apply text-purple-400;
+  @apply text-purple-400 font-bold;
 }
 
 @utility astro {
