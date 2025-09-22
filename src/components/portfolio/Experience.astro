@@ -1,0 +1,28 @@
+---
+import { experiences } from '@/data/experiences'
+---
+
+<div>
+  {
+    experiences.map((experience) => (
+      <article class="space-y-2 md:space-y-4 lg:space-y-2 2xl:space-y-4">
+        <h2 class="font-semibold text-3xl md:text-5xl lg:text-3xl 2xl:text-6xl text-white">
+          {experience.job} en{' '}
+          <span class="text-fuchsia-500">{experience.plate}</span>
+        </h2>
+        <p class="text-lg md:text-2xl lg:text-lg 2xl:text-3xl text-white ">
+          {experience.description}
+        </p>
+        <div>
+          <ul class="space-y-1 md:space-y-2 lg:space-y-1 2xl:space-y-2 list-disc pl-6">
+            {experience.learnings.map((learn) => (
+              <li class=" text-base md:text-xl lg:text-base 2xl:text-2xl text-pretty font-light text-white/95">
+                {learn}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    ))
+  }
+</div>
