@@ -1,35 +1,22 @@
 ---
-const experiences = [
-  {
-    job: 'Oficial carpintero a cargo ',
-    plate: 'Muebles Galiottiz',
-    description:
-      'Durante cinco años lideré el área de carpintería en un taller dedicado al diseño y fabricación de muebles a medida.',
-    learnings: [
-      'Aprendí a liderar equipos porque tenía que coordinar el trabajo de varias personas para cumplir con los pedidos a tiempo.',
-      'Desarrollé habilidades para enseñar y comunicarme, ya que me encargaba de capacitar a los nuevos.',
-      'Aprendí a tomar decisiones bajo presión, porque muchas veces dependían de mí para resolver imprevistos o ajustar plazos.',
-      'Entendí la importancia de organizar bien los tiempos y recursos para que todo saliera bien y sin atrasos.',
-      'Aprendí a diseñar con creatividad y funcionalidad, ya que hacía muebles a medida según las necesidades de cada cliente.',
-      'Gané confianza en mí mismo porque mi jefe confiaba plenamente en mi criterio y capacidad para manejar todo el taller.'
-    ]
-  }
-]
+import { experiences } from '@/data/experiences'
 ---
 
 <div>
   {
     experiences.map((experience) => (
-      <article class="space-y-2 2xl:space-y-4">
-        <h2 class="font-semibold text-3xl 2xl:text-6xl text-white">
+      <article class="space-y-2 md:space-y-4 lg:space-y-2 2xl:space-y-4">
+        <h2 class="font-semibold text-3xl md:text-5xl lg:text-3xl 2xl:text-6xl text-white">
           {experience.job} en{' '}
           <span class="text-fuchsia-500">{experience.plate}</span>
         </h2>
-        <p class="text-lg 2xl:text-3xl text-white ">{experience.description}</p>
+        <p class="text-lg md:text-2xl lg:text-lg 2xl:text-3xl text-white ">
+          {experience.description}
+        </p>
         <div>
-          <ul class="space-y-1 2xl:space-y-2 list-disc pl-6">
+          <ul class="space-y-1 md:space-y-2 lg:space-y-1 2xl:space-y-2 list-disc pl-6">
             {experience.learnings.map((learn) => (
-              <li class=" text-md 2xl:text-2xl text-pretty font-light text-white/95">
+              <li class=" text-base md:text-xl lg:text-base 2xl:text-2xl text-pretty font-light text-white/95">
                 {learn}
               </li>
             ))}
