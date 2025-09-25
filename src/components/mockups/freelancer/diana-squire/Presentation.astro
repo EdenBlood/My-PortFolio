@@ -1,16 +1,18 @@
 ---
-import DianaProfile from '@/assets/mockups/portfolio/1/diana-profile.png'
+import DianaProfile from '@/assets/mockups/portfolio/diana-squire/diana-profile.png'
 import { Picture } from 'astro:assets'
+
+const path = '/freelancer/mockup/portfolio/diana-squire/'
 ---
 
 <div
   class="relative bg-c-gradient-1 bg-radial-[at_0%_0%] from-c-aquagreen-950/20 from-10% via-c-gradient-1 via-20% to-c-gradient-2/70 to-70%"
 >
-  <main
+  <div
     class="relative lg:h-screen px-4 lg:px-0 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 pt-10 overflow-hidden"
   >
-    <div class="space-y-8 h-full flex flex-col justify-center py-6">
-      <div class="font-dm-serif text-slate-100">
+    <div class="h-full flex flex-col justify-center py-6">
+      <div class="font-dm-serif text-slate-100 mb-10">
         <h1 class="text-6xl font-light">
           <span class="text-3xl block">Hola!</span>
           Soy
@@ -20,7 +22,7 @@ import { Picture } from 'astro:assets'
         </h1>
       </div>
 
-      <div class="text-xl font-sora space-y-6">
+      <div class="text-xl font-sora space-y-6 mb-5">
         <p class="text-slate-300">
           Especialista en Marketing con más de 4 años de experiencia en
           estrategias digitales, gestión de marcas y campañas que conectan con
@@ -34,6 +36,13 @@ import { Picture } from 'astro:assets'
           crecer y destacar en un mercado competitivo.
         </p>
       </div>
+
+      <a
+        href={path + 'about'}
+        class="bg-c-aquagreen-600 text-slate-100 text-lg px-6 py-2 w-fit rounded-full font-bold hover:bg-c-aquagreen-500 hover:text-slate-100 transition-colors duration-300"
+      >
+        Pongamosnos en contacto!
+      </a>
     </div>
 
     <div class="h-full flex items-end">
@@ -44,5 +53,5 @@ import { Picture } from 'astro:assets'
         formats={['avif', 'webp']}
       />
     </div>
-  </main>
+  </div>
 </div>
