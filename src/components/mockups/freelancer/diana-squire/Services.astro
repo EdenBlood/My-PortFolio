@@ -1,0 +1,39 @@
+---
+import MarketingIcon from '@/assets/mockups/portfolio/diana-squire/marketing.svg'
+import BrandingIcon from '@/assets/mockups/portfolio/diana-squire/branding.svg'
+import DigitalIcon from '@/assets/mockups/portfolio/diana-squire/digital-marketing.svg'
+import ServiceIcon from '@/components/mockups/freelancer/diana-squire/ServiceIcon.astro'
+
+export type Service = {
+  title: string
+  description: string
+  icon: any
+  className?: string
+}
+
+const services: Service[] = [
+  {
+    title: 'Marketing Digital',
+    description:
+      'Optimización de campañas en redes sociales y marketing de contenidos.',
+    icon: MarketingIcon,
+    className: 'fill-red-500'
+  },
+  {
+    title: 'Gestión de Marca',
+    description: 'Creación de identidad de marca y gestión de marcas.',
+    icon: BrandingIcon,
+    className: 'text-pink-500'
+  },
+  {
+    title: 'Estrategias Digitales',
+    description: 'Estrategias digitales para empresas y emprendedores.',
+    icon: DigitalIcon,
+    className: 'text-sky-500'
+  }
+]
+---
+
+<div class="flex flex-col lg:flex-row gap-6">
+  {services.map((service) => <ServiceIcon service={service} />)}
+</div>

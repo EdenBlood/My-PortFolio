@@ -1,0 +1,26 @@
+---
+import type { Service } from '@/components/mockups/freelancer/diana-squire/Services.astro'
+
+interface Props {
+  service: Service
+}
+
+const { service } = Astro.props
+
+const Icon = service.icon
+---
+
+<div class="p-10 bg-c-gray-800 space-y-6 shadow-lg w-80 h-auto">
+  <div class="bg-c-gray-700 size-16 flex items-center justify-center">
+    <Icon
+      class={`${service.className}  w-full h-full p-2`}
+      stroke="currentColor"
+    />
+  </div>
+  <div class="space-y-2">
+    <h3 class="font-dm-serif font-bold text-2xl text-slate-300">
+      {service.title}
+    </h3>
+    <p class="text-slate-400 text-base">{service.description}</p>
+  </div>
+</div>
