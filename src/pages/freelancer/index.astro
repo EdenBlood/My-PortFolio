@@ -1,9 +1,7 @@
 ---
+import Presentation from '@/components/freelancer/Presentation.astro'
 import Layout from '@/layouts/Layout.astro'
-import HeroTitle from '@/components/ui/HeroTitle.astro'
-import DivTextContainerSmall from '@/components/ui/DivTextContainerSmall.astro'
-import SliderBar from '@/components/ui/SlideBar.astro'
-import ContactButton from '@/components/ui/ContactButton.astro'
+import TitleSection from '@/components/ui/TitleSection.astro'
 ---
 
 <Layout
@@ -11,74 +9,69 @@ import ContactButton from '@/components/ui/ContactButton.astro'
   titleSlug="Freelancer"
   title_main_card="Freelancer Especializado en SEO"
 >
-  <section class="reveal section space-y-3">
-    <div
-      class="min-h-[95vh] lg:min-h-[90vh] flex flex-col gap-3 md:gap-6 lg:gap-0 lg:justify-between"
-    >
-      <HeroTitle
-        colorlessText="Transformando tus ideas en"
-        coloredText="Realidad."
-      />
+  <Presentation />
 
-      <DivTextContainerSmall>
-        <p>
-          Soy <strong>Franco Montechiani</strong>,
-          <strong>desarrollador web full stack y especialista en SEO</strong>.
-          Me dedico a crear <strong
-            >sitios modernos, rápidos y optimizados</strong
-          >
-          que transmiten confianza y generan resultados.
-        </p>
+  <section class="reveal section">
+    <TitleSection>Layouts que creé</TitleSection>
 
-        <p>
-          Mi objetivo es que tu página no solo funcione, sino que también <strong
-            >se posicione en Google</strong
-          >, atraiga visitas de calidad y convierta esas visitas en clientes.
-          Combino <strong>tecnologías actuales</strong> con estrategias enfocadas
-          en
-          <strong>visibilidad y crecimiento online</strong>.
-        </p>
-
-        <p>
-          Si buscás a alguien capaz de <strong
-            >dar a conocer tu negocio en internet</strong
-          >, mejorar tu presencia digital y ofrecerte <strong
-            >soluciones a medida</strong
-          >, estás en el lugar indicado.
-          <strong>Contactame</strong> y hagamos crecer tu proyecto.
-        </p>
-      </DivTextContainerSmall>
-
-      <div class="flex items-center">
-        <p
-          class="text-8xl md:text-9xl lg:text-7xl 2xl:text-9xl font-bold bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+    <div class="grid gird-cols-1 md:grid-cols-2 gap-10">
+      <article
+        class="shadow-lg shadow-black/80 rounded-2xl overflow-hidden group"
+      >
+        <a
+          class="flex flex-col w-full h-64 2xl:h-80 bg-gray-card cursor-pointer overflow-hidden"
+          href={``}
         >
-          +2
-        </p>
+          <div class="h-2/3 overflow-hidden">
+            <img
+              loading="lazy"
+              decoding="async"
+              class="block w-full h-full object-cover object-center group-hover:scale-125 transform will-change-transform transition-all duration-500"
+              src={'/projects/zniply-1.webp'}
+              alt={`Layout `}
+            />
+          </div>
+          <div class="px-4 h-1/3 flex flex-col justify-center text-white">
+            <h2
+              class="font-semibold text-xl 2xl:text-3xl group-hover:text-fuchsia-500 transition-colors duration-300"
+            >
+              {'Zniply'}
+            </h2>
+            <p class="line-clamp-1 text-sm 2xl:text-lg font-light">
+              {'Descripción del proyecto'}
+            </p>
+          </div>
+        </a>
+      </article>
 
-        <div
-          class="flex flex-col justify-center gap-2 lg:gap-0.5 ml-6 text-2xl md:text-4xl lg:text-2xl 2xl:text-5xl font-bold"
+      <article
+        class="shadow-lg shadow-black/80 rounded-2xl overflow-hidden group"
+      >
+        <a
+          class="flex flex-col w-full h-64 2xl:h-80 bg-gray-card cursor-pointer overflow-hidden"
+          href={``}
         >
-          <p
-            class="bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
-          >
-            Años de experiencia
-          </p>
-
-          <p
-            class="bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
-          >
-            Haciendo crecer sitios web
-          </p>
-        </div>
-      </div>
-
-      <SliderBar />
-
-      <p class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl">
-        ¿Tienes algún proyecto en mente? Contactame o solicita un presupuesto.
-      </p>
-      <ContactButton url={''} class="w-full md:w-max" />
+          <div class="h-2/3 overflow-hidden">
+            <img
+              loading="lazy"
+              decoding="async"
+              class="block w-full h-full object-cover object-center group-hover:scale-125 transform will-change-transform transition-all duration-500"
+              src={'/projects/up-task-1.webp'}
+              alt={`Layout `}
+            />
+          </div>
+          <div class="px-4 h-1/3 flex flex-col justify-center text-white">
+            <h2
+              class="font-semibold text-xl 2xl:text-3xl group-hover:text-fuchsia-500 transition-colors duration-300"
+            >
+              {'UpTask'}
+            </h2>
+            <p class="line-clamp-1 text-sm 2xl:text-lg font-light">
+              {'Descripción del proyecto'}
+            </p>
+          </div>
+        </a>
+      </article>
     </div>
   </section>
 </Layout>

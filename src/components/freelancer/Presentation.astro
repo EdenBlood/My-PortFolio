@@ -1,0 +1,74 @@
+---
+import HeroTitle from '@/components/ui/HeroTitle.astro'
+import DivTextContainerSmall from '@/components/ui/DivTextContainerSmall.astro'
+import SliderBar from '@/components/ui/SlideBar.astro'
+import ContactButton from '@/components/ui/ContactButton.astro'
+---
+
+<section class="reveal section space-y-3">
+  <div
+    class="min-h-[95vh] lg:min-h-[90vh] flex flex-col gap-3 md:gap-6 lg:gap-0 lg:justify-between"
+  >
+    <HeroTitle
+      colorlessText="Transformando tus ideas en"
+      coloredText="Realidad."
+    />
+
+    <DivTextContainerSmall>
+      <p>
+        Soy <strong>Franco Montechiani</strong>,
+        <strong>desarrollador web full stack y especialista en SEO</strong>. Me
+        dedico a crear <strong>sitios modernos, rápidos y optimizados</strong>
+        que transmiten confianza y generan resultados.
+      </p>
+
+      <p>
+        Mi objetivo es que tu página no solo funcione, sino que también <strong
+          >se posicione en Google</strong
+        >, atraiga visitas de calidad y convierta esas visitas en clientes.
+        Combino <strong>tecnologías actuales</strong> con estrategias enfocadas en
+        <strong>visibilidad y crecimiento online</strong>.
+      </p>
+
+      <p>
+        Si buscás a alguien capaz de <strong
+          >dar a conocer tu negocio en internet</strong
+        >, mejorar tu presencia digital y ofrecerte <strong
+          >soluciones a medida</strong
+        >, estás en el lugar indicado.
+        <strong>Contactame</strong> y hagamos crecer tu proyecto.
+      </p>
+    </DivTextContainerSmall>
+
+    <div class="flex items-center">
+      <p
+        class="text-8xl md:text-9xl lg:text-7xl 2xl:text-9xl font-bold bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+      >
+        +2
+      </p>
+
+      <div
+        class="flex flex-col justify-center gap-2 lg:gap-0.5 ml-6 text-2xl md:text-4xl lg:text-2xl 2xl:text-5xl font-bold"
+      >
+        <p
+          class="bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+        >
+          Años de experiencia
+        </p>
+
+        <p
+          class="bg-gradient-to-br from-white to-neutral-400 bg-clip-text text-transparent"
+        >
+          Haciendo crecer sitios web
+        </p>
+      </div>
+    </div>
+
+    <!-- <SliderBar /> -->
+
+    <p class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl">
+      ¿Tienes algún proyecto en mente? Contactame o solicita un presupuesto.
+    </p>
+    <ContactButton url={''} class="w-full md:w-max" />
+  </div>
+</section>

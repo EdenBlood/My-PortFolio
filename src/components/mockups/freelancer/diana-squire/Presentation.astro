@@ -1,0 +1,48 @@
+---
+import DianaProfile from '@/assets/mockups/portfolio/1/diana-profile.png'
+import { Picture } from 'astro:assets'
+---
+
+<div
+  class="relative bg-c-gradient-1 bg-radial-[at_0%_0%] from-c-aquagreen-950/20 from-10% via-c-gradient-1 via-20% to-c-gradient-2/70 to-70%"
+>
+  <main
+    class="relative lg:h-screen px-4 lg:px-0 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 pt-10 overflow-hidden"
+  >
+    <div class="space-y-8 h-full flex flex-col justify-center py-6">
+      <div class="font-dm-serif text-slate-100">
+        <h1 class="text-6xl font-light">
+          <span class="text-3xl block">Hola!</span>
+          Soy
+          <span class="text-c-aquagreen-500 font-bold italic">
+            Diana Squire,
+          </span>
+        </h1>
+      </div>
+
+      <div class="text-xl font-sora space-y-6">
+        <p class="text-slate-300">
+          Especialista en Marketing con más de 4 años de experiencia en
+          estrategias digitales, gestión de marcas y campañas que conectan con
+          las personas. Mi enfoque combina creatividad con análisis de datos
+          para generar resultados medibles.
+        </p>
+        <p class="text-slate-400 text-lg">
+          He trabajado en proyectos que van desde la creación de identidad de
+          marca hasta la optimización de campañas en redes sociales y marketing
+          de contenidos. Mi objetivo es ayudar a empresas y emprendedores a
+          crecer y destacar en un mercado competitivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="h-full flex items-end">
+      <Picture
+        class="object-cover object-top hidden lg:block lg:h-[85vh]"
+        src={DianaProfile}
+        alt="Foto de Diana Squire"
+        formats={['avif', 'webp']}
+      />
+    </div>
+  </main>
+</div>

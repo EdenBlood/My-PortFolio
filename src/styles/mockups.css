@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-c-aquagreen-50: #f1fcfa;
+  --color-c-aquagreen-100: #cff8ed;
+  --color-c-aquagreen-200: #9ff0dd;
+  --color-c-aquagreen-300: #7ae5d0;
+  --color-c-aquagreen-400: #37cab1;
+  --color-c-aquagreen-500: #1eae98;
+  --color-c-aquagreen-600: #158c7c;
+  --color-c-aquagreen-700: #157065;
+  --color-c-aquagreen-800: #165952;
+  --color-c-aquagreen-900: #174a45;
+  --color-c-aquagreen-950: #072c2a;
+
+  --color-c-gradient-1: #1b1c21;
+  --color-c-gradient-2: #19102c;
+}
+section {
+  color: #19102c;
+}
+@layer utilities {
+  .font-sora {
+    font-family: 'Sora', sans-serif;
+  }
+  .font-dm-serif {
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .is-active {
+    @apply font-semibold relative after:absolute after:inset-0 after:w-10 after:bg-c-aquagreen-500/20 hover:after:bg-c-aquagreen-500/50 after:-z-10;
+  }
+
+  .is-not-active {
+    @apply font-light after:absolute after:inset-0 after:w-0 hover:after:w-10 after:bg-c-aquagreen-500/20 after:-z-10;
+  }
+}
+
+.header {
+  transition:
+    background-color 0.5s,
+    backdrop-filter 0.5s,
+    -webkit-backdrop-filter 0.5s,
+    border-color 0.5s;
+  border-bottom: 2px solid #1eae98;
+  background-color: var(--color-c-gradient-1);
+}
+
+@media (min-width: 1024px) {
+  .header {
+    background-color: transparent;
+    border-bottom: 2px solid transparent; /* estado inicial */
+  }
+  .header.scrolled {
+    background-color: rgba(25, 16, 44, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid #1eae98;
+  }
+}

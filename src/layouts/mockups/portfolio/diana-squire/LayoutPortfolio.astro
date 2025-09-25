@@ -1,0 +1,31 @@
+---
+import '@/styles/mockups.css'
+import Header from '@/components/mockups/freelancer/diana-squire/Header.astro'
+import Footer from '@/components/mockups/freelancer/diana-squire/Footer.astro'
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Franco Montechiani | {title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="relative">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

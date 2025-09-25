@@ -1,0 +1,46 @@
+---
+const { pathname } = Astro.url
+function isActive(path: string): boolean {
+  return pathname.endsWith(path)
+}
+---
+
+<div class="header w-full lg:fixed top-0 z-50 py-4">
+  <header
+    class="bg-transparent flex flex-col lg:flex-row justify-between items-center max-w-6xl mx-auto gap-4"
+  >
+    <h2 class="text-3xl font-semibold text-c-aquagreen-500">Diana.</h2>
+
+    <nav
+      class="flex gap-2 lg:gap-16 relative flex-col lg:flex-row items-center"
+    >
+      <a
+        class={`${isActive('/') ? 'is-active' : 'is-not-active'}  relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
+        href="/">Inicio</a
+      >
+      <a
+        class={`${isActive('/about') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
+        href="/about">Sobre mi</a
+      >
+      <a
+        class={`${isActive('/projects') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
+        href="/projects">Proyectos</a
+      >
+      <a
+        class={`${isActive('/contact') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
+        href="/contact">Contacto</a
+      >
+    </nav>
+  </header>
+</div>
+
+<script>
+  ;(() => {
+    const header = document.querySelector('.header')
+    if (!header) return
+    const onScroll = () =>
+      header.classList.toggle('scrolled', window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll() // estado inicial
+  })()
+</script>
