@@ -3,33 +3,37 @@ const { pathname } = Astro.url
 function isActive(path: string): boolean {
   return pathname.endsWith(path)
 }
+
+const path = '/freelancer/mockup/portfolio/diana-squire/'
+const links = [
+  { href: path, label: 'Inicio' },
+  { href: path + 'about', label: 'Sobre mi' },
+  { href: path + 'experience', label: 'Experiencia' },
+  { href: path + 'contact', label: 'Contacto' }
+]
 ---
 
 <div class="header w-full lg:fixed top-0 z-50 py-4">
   <header
     class="bg-transparent flex flex-col lg:flex-row justify-between items-center max-w-6xl mx-auto gap-4"
   >
-    <h2 class="text-3xl font-semibold text-c-aquagreen-500">Diana.</h2>
+    <h2 class="text-3xl font-semibold text-c-aquagreen-500">
+      <a href="/">Diana.</a>
+    </h2>
 
     <nav
       class="flex gap-2 lg:gap-16 relative flex-col lg:flex-row items-center"
     >
-      <a
-        class={`${isActive('/') ? 'is-active' : 'is-not-active'}  relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
-        href="/">Inicio</a
-      >
-      <a
-        class={`${isActive('/about') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
-        href="/about">Sobre mi</a
-      >
-      <a
-        class={`${isActive('/projects') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
-        href="/projects">Proyectos</a
-      >
-      <a
-        class={`${isActive('/contact') ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
-        href="/contact">Contacto</a
-      >
+      {
+        links.map(({ href, label }) => (
+          <a
+            class={`${isActive(href) ? 'is-active' : 'is-not-active'} relative text-slate-300 py-2 px-3 text-xl after:transition-all after:duration-300`}
+            href={href}
+          >
+            {label}
+          </a>
+        ))
+      }
     </nav>
   </header>
 </div>
