@@ -15,9 +15,14 @@
 
   --color-c-gradient-1: #1b1c21;
   --color-c-gradient-2: #19102c;
+
+  --color-c-gray-900: #1b311b;
+  --color-c-gray-800: #201f29;
+  --color-c-gray-700: #4a4d54;
+  --color-c-gray-600: #585b62;
 }
 section {
-  color: #19102c;
+  color: #1b311b;
 }
 @layer utilities {
   .font-sora {
@@ -56,5 +61,8 @@ section {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 2px solid #1eae98;
+  }
+  .letter-spacing-2 {
+    letter-spacing: 0.25rem;
   }
 }
