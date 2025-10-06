@@ -13,5 +13,10 @@ export default defineConfig({
     alias: {
       '@': '/src'
     }
+  },
+  image: {
+    service: {
+      provider: 'https://images.pexels.com/'
+    }
   }
 })

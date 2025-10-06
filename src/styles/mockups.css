@@ -21,9 +21,7 @@
   --color-c-gray-700: #4a4d54;
   --color-c-gray-600: #585b62;
 }
-section {
-  color: #1b311b;
-}
+
 @layer utilities {
   .font-sora {
     font-family: 'Sora', sans-serif;

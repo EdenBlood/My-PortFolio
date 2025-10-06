@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/mockups/portfolio/diana-squire/LayoutPortfolio.astro'
+import { experiences } from '@/data/mockups/portfolio/diana-squire/index.ts'
+import FullExperienceCard from '@/components/mockups/freelancer/diana-squire/FullExperienceCard.astro'
+import Title from '@/components/mockups/freelancer/diana-squire/ui/Title.astro'
+import type { Experience } from '@/data/mockups/portfolio/diana-squire/index.ts'
+
+export function getStaticPaths() {
+  return experiences.map((experience) => ({
+    params: { slug: experience.slug },
+    props: { experience }
+  }))
+}
+
+interface Props {
+  experience: Experience
+}
+
+const { experience } = Astro.props
+---
+
+<Layout title={`Experiencia de Diana Squire | ${experience.title}`}>
+  <div class="bg-gradient-to-br from-c-gradient-1 to-c-gradient-2">
+    <article class="max-w-6xl mx-auto px-4 lg:px-0 pt-30">
+      <Title>
+        Experiencia:
+        <span class="sr-only">{experience.title} | Diana Squire</span></Title
+      >
+      <FullExperienceCard experience={experience} />
+    </article>
+  </div>
+</Layout>

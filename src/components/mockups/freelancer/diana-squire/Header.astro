@@ -1,5 +1,6 @@
 ---
 const { pathname } = Astro.url
+
 function isActive(path: string): boolean {
   return pathname.endsWith(path)
 }

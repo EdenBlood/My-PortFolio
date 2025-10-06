@@ -1,8 +1,7 @@
 ---
 import DianaProfile from '@/assets/mockups/portfolio/diana-squire/diana-profile.png'
 import { Picture } from 'astro:assets'
-
-const path = '/freelancer/mockup/portfolio/diana-squire/'
+import LetsTalk from '@/components/mockups/freelancer/diana-squire/ui/LetsTalk.astro'
 ---
 
 <div
@@ -37,12 +36,7 @@ const path = '/freelancer/mockup/portfolio/diana-squire/'
         </p>
       </div>
 
-      <a
-        href={path + 'about'}
-        class="bg-c-aquagreen-600 text-slate-100 text-lg px-6 py-2 w-fit rounded-full font-bold hover:bg-c-aquagreen-500 hover:text-slate-100 transition-colors duration-300"
-      >
-        Pongamosnos en contacto!
-      </a>
+      <LetsTalk href="contact">Pongamosnos en contacto!</LetsTalk>
     </div>
 
     <div class="h-full flex items-end">

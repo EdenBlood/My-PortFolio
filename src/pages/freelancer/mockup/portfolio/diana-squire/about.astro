@@ -2,6 +2,8 @@
 import Layout from '@/layouts/mockups/portfolio/diana-squire/LayoutPortfolio.astro'
 import DianaAboutMe from '@/assets/mockups/portfolio/diana-squire/diana-about.png'
 import { Picture } from 'astro:assets'
+import Title from '@/components/mockups/freelancer/diana-squire/ui/Title.astro'
+import LetsTalk from '@/components/mockups/freelancer/diana-squire/ui/LetsTalk.astro'
 
 const path = '/freelancer/mockup/portfolio/diana-squire/'
 ---
@@ -18,9 +20,9 @@ const path = '/freelancer/mockup/portfolio/diana-squire/'
         <div
           class="space-y-6 text-lg text-slate-300 font-sora leading-relaxed h-full flex flex-col justify-center"
         >
-          <h1 class="text-6xl font-bold text-slate-100 font-dm-serif">
+          <Title>
             Sobre mi <span class="sr-only">Diana Squire</span>
-          </h1>
+          </Title>
           <p>
             Soy <strong class="text-c-aquagreen-500">Diana Squire</strong>,
             especialista en marketing digital con más de 4 años de experiencia
@@ -40,12 +42,7 @@ const path = '/freelancer/mockup/portfolio/diana-squire/'
             >.
           </p>
 
-          <a
-            href={path + 'contact'}
-            class="block bg-c-aquagreen-600 text-slate-100 px-6 py-2 rounded-full font-semibold hover:bg-c-aquagreen-500 transition w-fit"
-          >
-            Hablemos
-          </a>
+          <LetsTalk href="contact">Hablemos</LetsTalk>
         </div>
 
         <!-- Imagen -->

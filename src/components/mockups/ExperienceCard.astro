@@ -1,0 +1,50 @@
+---
+import type { Experience } from '@/data/mockups/portfolio/diana-squire'
+import { Picture } from 'astro:assets'
+
+interface Props {
+  experience: Experience
+}
+
+const { experience } = Astro.props
+
+const path = `/freelancer/mockup/portfolio/diana-squire/experience/${experience.slug}`
+---
+
+<article>
+  <a class="grid grid-cols-1 lg:grid-cols-3 gap-6 group" href={path}>
+    <div class="lg:col-span-2 flex flex-col justify-center gap-2">
+      <h2
+        class="text-3xl font-bold group-hover:text-c-aquagreen-400 transition-colors duration-300"
+      >
+        {experience.title}
+      </h2>
+      <div class="flex justify-between">
+        <p
+          class="text-c-aquagreen-300 group-hover:text-c-aquagreen-400 transition-colors duration-300 text-lg"
+        >
+          {experience.company}
+        </p>
+        <p
+          class="text-slate-400 group-hover:text-slate-300 transition-colors duration-300 text-sm"
+        >
+          {experience.date}
+        </p>
+      </div>
+      <p
+        class="text-slate-300 line-clamp-3 group-hover:text-slate-200 transition-colors duration-300"
+      >
+        {experience.description}
+      </p>
+    </div>
+    <div class="lg:col-span-1">
+      <Picture
+        src={experience.img}
+        alt={experience.title}
+        formats={['avif', 'webp']}
+        class="object-cover object-center h-full w-full"
+        inferSize
+      />
+    </div>
+  </a>
+</article>
