@@ -2,12 +2,7 @@
 
 ## 🔧 Tareas Pendientes
 
-- [ ] Tomar las fotos de los proyectos
-- [ ] Hacer los videos de muestra eh integrarlos
-- [ ] SEO en las paginas
-- [ ] Componente reutilizable para Separar correctamente `GlobalLayout.astro` y `Layout.astro`
-- [ ] Optimizar el `MainCard.astro`
-- [ ] Agregar el Curriculum Vitae
+- [ ] Terminar el apartado de Freelancing
 
 ## 💡 Mejoras opcionales
 
@@ -15,5 +10,3 @@
 - [ ] Mejorar accesibilidad (contraste, ARIA)
 
 ## ✅ Completado
-
-- [ ]

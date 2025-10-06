@@ -4,7 +4,7 @@ export interface IProject {
   smallDescription: string
   description: string
   learnings: string
-  userData: string
+  userData?: string
   images: string[]
   technologies: string[]
   url: string
@@ -12,6 +12,100 @@ export interface IProject {
 }
 
 const projects: IProject[] = [
+  {
+    name: 'Quiosco de Comida',
+    slug: 'quiosco',
+    smallDescription: 'Creador y Gestor de pedidos para restaurantes',
+    description: `
+      <p class="mb-4">
+        <strong>Quiosco de Comida</strong> es una aplicación completa para la
+        <strong>gestión de pedidos en restaurantes y bares</strong>. Fue el primer
+        proyecto donde trabajé con <strong>Next.js</strong>, explorando a fondo el
+        renderizado <strong>SSR</strong>, las <strong>Server Actions</strong> y la
+        combinación de <strong>CSR + SSR</strong> en distintas secciones del sistema.
+      </p>
+      <p class="mb-4">
+        La aplicación cuenta con un <strong>panel administrativo</strong> donde se
+        pueden <strong>agregar, editar, eliminar y gestionar productos</strong>, así
+        como administrar pedidos en tiempo real. Cada pedido puede marcarse como
+        completado, y el cliente lo visualiza en una <strong>pantalla pública</strong>
+        que indica que su orden está lista para retirar.
+      </p>
+      <p class="mb-4">
+        Incluye una <strong>galería de productos</strong> con paginación,
+        <strong>buscador</strong> instantáneo, y una interfaz totalmente construida
+        con <strong>TailwindCSS</strong>. Todo el código está escrito en
+        <strong>TypeScript</strong> con validaciones mediante <strong>Zod</strong> y
+        un modelo de datos gestionado con <strong>Prisma</strong> conectado a
+        <strong>PostgreSQL</strong>.
+      </p>
+      <p class="mb-4">
+        Todos los apartados del proyecto están diseñados como
+        <strong>componentes reutilizables</strong>, con un orden y estructura clara.
+        Fue una experiencia clave para comprender cómo configurar y desplegar
+        <strong>Next.js</strong> con bases de datos reales y tipado estricto de punta
+        a punta.
+      </p>
+    `,
+    learnings: `
+      <ul class="list-disc list-inside space-y-2 mb-4">
+        <li class="pl-2">
+          Primer uso de <strong>Next.js</strong> comprendiendo el flujo de
+          <strong>Server Components</strong>, <strong>SSR</strong> y
+          <strong>Server Actions</strong>.
+        </li>
+        <li class="pl-2">
+          Integración de <strong>Prisma</strong> con <strong>PostgreSQL</strong> y
+          aprendizaje de su configuración completa (schemas, migraciones, seeds).
+        </li>
+        <li class="pl-2">
+          Validación estricta de formularios y datos con <strong>Zod</strong> y
+          <strong>TypeScript</strong>.
+        </li>
+        <li class="pl-2">
+          Implementación de <strong>paginación</strong> y <strong>búsqueda</strong> en
+          consultas server-side.
+        </li>
+        <li class="pl-2">
+          Construcción de un <strong>panel administrativo</strong> con control total
+          de productos (crear, editar, eliminar) y gestión de pedidos con estados.
+        </li>
+        <li class="pl-2">
+          Creación de una <strong>pantalla pública</strong> que actualiza pedidos en
+          tiempo real para los clientes.
+        </li>
+        <li class="pl-2">
+          Diseño modular y <strong>componentes reutilizables</strong> con estructura
+          clara, priorizando mantenibilidad y escalabilidad.
+        </li>
+        <li class="pl-2">
+          Comprensión profunda de cómo combinar <strong>SSR</strong> y
+          <strong>CSR</strong> en un mismo flujo de renderizado.
+        </li>
+        <li class="pl-2">
+          Configuración, despliegue y buenas prácticas de <strong>Next.js</strong> en
+          entornos productivos.
+        </li>
+      </ul>
+    `,
+    images: [
+      '/projects/quiosco-1.webp',
+      '/projects/quiosco-2.webp',
+      '/projects/quiosco-3.webp',
+      '/projects/quiosco-4.webp'
+    ],
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Zod',
+      'React',
+      'Prisma',
+      'PostgreSQL'
+    ],
+    url: 'https://quiosco-vs89.vercel.app/admin/products',
+    id: 0
+  },
   {
     name: 'Zniply',
     slug: 'zniply',
