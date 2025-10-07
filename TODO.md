@@ -10,3 +10,5 @@
 - [ ] Mejorar accesibilidad (contraste, ARIA)
 
 ## ✅ Completado
+
+- [ x ] Corregir problema del deploy
