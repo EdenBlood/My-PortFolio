@@ -16,13 +16,15 @@ const { url, hidden, title_main_card } = Astro.props
   <HeaderImage />
 
   <div
-    class="lg:w-auto w-full h-auto flex flex-col text-center gap-6 lg:gap-4 2xl:gap-10"
+    class="lg:w-auto w-full h-auto flex flex-col text-center gap-6 lg:gap-4 laptop:gap-6 2xl:gap-10"
   >
-    <h1 class="text-6xl lg:text-4xl 2xl:text-c-5xl font-bold">
+    <h1
+      class="text-4xl sm:text-6xl lg:text-4xl laptop:text-5xl 2xl:text-c-5xl font-bold"
+    >
       Franco Montechiani
     </h1>
     <div
-      class="font-extralight text-xl md:text-2xl lg:text-lg 2xl:text-3xl space-y-1"
+      class="font-extralight text-xl md:text-2xl lg:text-lg laptop:text-2xl 2xl:text-3xl space-y-1"
     >
       <h2>{title_main_card}</h2>
       <p>Rosario, <span class="text-sky-200">Argentina</span></p>
