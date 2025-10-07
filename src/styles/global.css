@@ -11,10 +11,12 @@
   --color-gray-card: rgb(39, 40, 41);
 
   --default-font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  --breakpoint-laptop: 87.5rem;
 }
 
 @utility main-card-container {
-  @apply lg:flex flex-col flex-nowrap justify-between items-center h-[95vh] lg:h-[90vh] relative top-[2.5vh] lg:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 lg:py-8 2xl:py-14 2xl:px-4 rounded-2xl w-full self-start lg:flex-none lg:w-92 2xl:w-130 gap-6 lg:gap-2 shadow-lg shadow-black/80;
+  @apply lg:flex flex-col flex-nowrap justify-between items-center h-[95vh] lg:h-[90vh] relative top-[2.5vh] lg:top-[5vh] lg:sticky bg-gray-card py-8 md:py-12 lg:py-8 2xl:py-14 2xl:px-4 rounded-2xl w-full self-start lg:flex-none lg:w-92 laptop:w-112 2xl:w-130 gap-6 lg:gap-2 laptop:gap-4 2xl:gap-6 shadow-lg shadow-black/80;
 }
 
 @utility text-c-3xl {
@@ -114,7 +116,7 @@ strong {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-99.5%);
   }
 }
 
@@ -136,7 +138,7 @@ strong {
 @utility slide-track {
   display: flex;
   width: max-content;
-  animation: scroll 15s linear infinite;
+  animation: scroll 16s linear infinite;
 }
 @utility slide {
   flex: 0 0 auto;
