@@ -14,7 +14,7 @@ interface IAlert {
   error: boolean
 }
 
-export default function Contact() {
+export default function Contact({ t }: { t: any }) {
   const form = useRef<HTMLFormElement>(null)
 
   const [mailInfo, setMailInfo] = useState<MailFormData>({
@@ -52,7 +52,7 @@ export default function Contact() {
     setLoading(true)
     // Validar que todos los campos tengan información
     if (Object.values(mailInfo).some((value) => String(value).trim() === '')) {
-      setAlert({ msg: 'Todos los campos son obligatorios', error: true })
+      setAlert({ msg: t['required-fields'], error: true })
       setTimeout(() => setAlert({ msg: '', error: false }), 4000)
       setLoading(false)
       return
@@ -66,13 +66,13 @@ export default function Contact() {
         import.meta.env.PUBLIC_PUBLIC_KEY
       )
 
-      setAlert({ msg: 'Correo enviado correctamente', error: false })
+      setAlert({ msg: t['success-message'], error: false })
 
       resetForm()
       setLoading(false)
       setTimeout(() => setAlert({ msg: '', error: false }), 4000)
     } catch (error) {
-      setAlert({ msg: 'Hubo un error al enviar el correo', error: true })
+      setAlert({ msg: t['error-message'], error: true })
       setLoading(false)
       setTimeout(() => setAlert({ msg: '', error: false }), 4000)
     }
@@ -86,14 +86,14 @@ export default function Contact() {
         className="bg-gray-card p-8 rounded-2xl space-y-4 2xl:space-y-6 shadow-lg shadow-black/50"
       >
         <legend className="text-lg md:text-4xl lg:text-xl 2xl:text-4xl font-semibold mb-10">
-          Llena el formulario y nos mantendremos en{' '}
-          <span className="text-fuchsia-500">contacto via Mail.</span>
+          {t['legend-white']}{' '}
+          <span className="text-fuchsia-500">{t['legend-color']}</span>
         </legend>
 
         {alert.msg && <Alert msg={alert.msg} error={alert.error} />}
 
         <div className="space-y-2 2xl:space-y-3">
-          <Label id="name" camp="Nombre" />
+          <Label id="name" camp={t['name']} t={t['required-field']} />
           <input
             value={mailInfo.name}
             onChange={handleChange}
@@ -102,19 +102,19 @@ export default function Contact() {
             type="text"
             id="name"
             name="name"
-            placeholder="Tú Nombre..."
+            placeholder={t['name-placeholder']}
             maxLength={20}
           />
           <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
             <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
               i
             </span>
-            Ingresa un nombre valido
+            {t['name-field-info']}
           </p>
         </div>
 
         <div className="space-y-2 2xl:space-y-3">
-          <Label id="email" camp="Email" />
+          <Label id="email" camp={t['email']} t={t['required-field']} />
           <input
             value={mailInfo.email}
             onChange={handleChange}
@@ -123,19 +123,19 @@ export default function Contact() {
             type="email"
             id="email"
             name="email"
-            placeholder="Tú Email de Contacto..."
+            placeholder={t['email-placeholder']}
             maxLength={30}
           />
           <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
             <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
               i
             </span>
-            Ingresa un mail valido
+            {t['email-field-info']}
           </p>
         </div>
 
         <div className="space-y-2 2xl:space-y-3">
-          <Label id="message" camp="Información" />
+          <Label id="message" camp={t['message']} t={t['required-field']} />
           <textarea
             value={mailInfo.message}
             onChange={handleChange}
@@ -143,13 +143,13 @@ export default function Contact() {
             className="border-2 border-gray-300/30 rounded-md w-full py-1 px-2 2xl:py-2 2xl:px-4 text-base md:text-xl lg:text-base 2xl:text-2xl peer invalid:border-red-500 invalid:text-red-500 focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             name="message"
             id="message"
-            placeholder="Información que va a contener el Email..."
+            placeholder={t['message-placeholder']}
           />
           <p className="hidden peer-invalid:visible text-red-500 text-sm 2xl:text-lg peer-invalid:flex gap-2 items-center">
             <span className="text-xs border-2 rounded-full size-4 font-semibold inline-flex items-center justify-center">
               i
             </span>
-            Ingresa un mensaje valido
+            {t['message-field-info']}
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export default function Contact() {
             type="submit"
             className="block mx-auto cursor-pointer text-center bg-purple-600 not-disabled:hover:bg-purple-700 disabled:bg-purple-500/30  disabled:cursor-not-allowed transition-colors duration-300 font-medium text-white py-3 px-10 rounded-lg md:text-2xl lg:text-lg 2xl:text-3xl"
             disabled={loading}
-            value={loading ? 'Enviando...' : 'Enviar Mail'}
+            value={loading ? t['sending'] : t['send']}
           />
         </div>
       </form>

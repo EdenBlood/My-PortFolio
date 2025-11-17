@@ -17,5 +17,12 @@ export default defineConfig({
     service: {
       provider: 'https://images.pexels.com/'
     }
+  },
+  i18n: {
+    locales: ['es', 'en'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: true
+    }
   }
 })

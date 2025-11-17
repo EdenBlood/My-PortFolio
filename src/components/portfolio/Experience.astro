@@ -1,13 +1,19 @@
 ---
+interface Props {
+  lang: 'es' | 'en'
+}
+
+const { lang } = Astro.props
+
 import { experiences } from '@/data/experiences'
 ---
 
 <div>
   {
-    experiences.map((experience) => (
+    experiences[lang].map((experience) => (
       <article class="space-y-2 md:space-y-4 lg:space-y-2 2xl:space-y-4">
         <h2 class="font-semibold text-3xl md:text-5xl lg:text-3xl 2xl:text-6xl text-white">
-          {experience.job} en{' '}
+          {experience.job} in{' '}
           <span class="text-fuchsia-500">{experience.plate}</span>
         </h2>
         <p class="text-lg md:text-2xl lg:text-lg 2xl:text-3xl text-white ">

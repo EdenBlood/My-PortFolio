@@ -1,0 +1,52 @@
+---
+export const prerender = false
+
+const { lang } = Astro.params
+
+if (lang !== 'es' && lang !== 'en') {
+  redirectToDefaultLocale(Astro)
+}
+
+import Layout from '@/layouts/Layout.astro'
+import Presentation from '@/components/portfolio/Presentation.astro'
+import Projects from '@/components/portfolio/Projects.astro'
+import Experience from '@/components/portfolio/Experience.astro'
+import Contact from '@/components/portfolio/Contact.jsx'
+import TitleSection from '@/components/ui/TitleSection.astro'
+import { redirectToDefaultLocale } from 'astro:i18n'
+
+const tMain = (await import(`@/locales/${lang}/main-page.json`)).default
+const tPresentation = (await import(`@/locales/${lang}/presentation.json`))
+  .default
+const tUi = (await import(`@/locales/${lang}/ui.json`)).default
+const tContact = (await import(`@/locales/${lang}/contact.json`)).default
+---
+
+<Layout
+  hidden={false}
+  titleSlug={tMain['title-slug']}
+  title_main_card={tMain['title-main-card']}
+  lang={lang!}
+>
+  <section class="section reveal">
+    <Presentation t={tPresentation} tUi={tUi} />
+  </section>
+
+  <section id="projects" class="section reveal min-h-screen">
+    <TitleSection>{tMain['projects']}</TitleSection>
+    <Projects lang={lang as 'es' | 'en'} />
+  </section>
+
+  <section
+    id="experience"
+    class="section reveal flex flex-col justify-center lg:gap-10"
+  >
+    <TitleSection>{tMain['experience']}</TitleSection>
+    <Experience lang={lang as 'es' | 'en'} />
+  </section>
+
+  <section id="contact" class="section reveal">
+    <TitleSection>{tMain['contact']}</TitleSection>
+    <Contact client:visible t={tContact} />
+  </section>
+</Layout>

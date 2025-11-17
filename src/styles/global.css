@@ -39,6 +39,19 @@ strong {
   filter: drop-shadow(0 0 0.5px white);
 }
 
+.reveal,
+.reveal-child {
+  will-change: opacity, transform;
+}
+
+@utility reveal-hidden {
+  @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+@utility reveal-show {
+  @apply opacity-100 translate-y-0;
+}
+
 @utility texture {
   flex: none;
   height: 100%;

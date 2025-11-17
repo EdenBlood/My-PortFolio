@@ -3,9 +3,10 @@ import DisplayTag from '@/components/ui/DisplayTag'
 interface LabelProps {
   id: string
   camp: string
+  t: string
 }
 
-export default function Label({ id, camp }: LabelProps) {
+export default function Label({ id, camp, t }: LabelProps) {
   return (
     <>
       <div className=" relative group w-fit">
@@ -17,7 +18,7 @@ export default function Label({ id, camp }: LabelProps) {
           <span className="text-fuchsia-400">*</span>:
         </label>
 
-        <DisplayTag text="CampoObligatorio" ubication="-top-9" />
+        <DisplayTag text={t} ubication="-top-9" />
       </div>
     </>
   )

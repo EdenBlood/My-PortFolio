@@ -5,16 +5,26 @@ import GlobalLayout from '@/layouts/GlobalLayout.astro'
 import MainCard from '@/components/PrincipalCard/MainCard.astro'
 
 interface Props {
+  lang: string
   hidden: boolean
   titleSlug: string
   title_main_card: string
 }
 
-const { hidden, titleSlug, title_main_card } = Astro.props
+const { hidden, titleSlug, title_main_card, lang } = Astro.props
+
+const tUi = (await import(`@/locales/${lang}/ui.json`)).default
+
+const url = new URL(Astro.url)
+const newLang = lang === 'en' ? 'es' : 'en'
+
+const switchLang = url.pathname.includes(`-${lang}`)
+  ? url.pathname.replace(`/${lang}`, `/${newLang}`)
+  : url.pathname.replace(`/${lang}`, `/${newLang}`)
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <title>Franco Montechiani Portfolio Dev | {titleSlug}</title>
     <meta charset="UTF-8" />
@@ -101,6 +111,7 @@ const { hidden, titleSlug, title_main_card } = Astro.props
           url="#contact"
           hidden={hidden}
           title_main_card={title_main_card}
+          tUi={tUi}
         />
 
         <div
@@ -110,6 +121,11 @@ const { hidden, titleSlug, title_main_card } = Astro.props
         </div>
       </div>
     </GlobalLayout>
+    <a
+      href={switchLang}
+      class="rounded-full fixed top-5 right-5 size-12 text-slate-50 bg-violet-700 z-50 hover:bg-violet-600 font-bold text-lg transition-colors duration-300 cursor-pointer flex items-center justify-center"
+      >{newLang.toUpperCase()}</a
+    >
   </body>
 
   <Script />

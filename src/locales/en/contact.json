@@ -1,0 +1,19 @@
+{
+  "legend-white": "Fill the form and we will keep in touch via Mail.",
+  "legend-color": "via Mail.",
+  "name": "Name",
+  "name-placeholder": "Your Name...",
+  "name-field-info": "Enter a valid name",
+  "email": "Email",
+  "email-placeholder": "Your Email...",
+  "email-field-info": "Enter a valid email",
+  "message": "Message",
+  "message-placeholder": "Information that will be contained in the Email...",
+  "message-field-info": "Enter a valid message",
+  "send": "Send Mail",
+  "sending": "Sending...",
+  "error-message": "Error sending the mail",
+  "success-message": "Mail sent successfully",
+  "required-fields": "All fields are required",
+  "required-field": "Required Field"
+}

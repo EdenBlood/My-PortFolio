@@ -1,8 +1,18 @@
 ---
 import ProjectItem from '@/components/portfolio/ProjectItem.astro'
-import projects, { type IProject } from '@/data/projects'
+import projects, { type ProjectsLanguages } from '@/data/projects'
+
+interface Props {
+  lang: 'es' | 'en'
+}
+
+const { lang } = Astro.props
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-  {projects.map((project: IProject) => <ProjectItem project={project} />)}
+  {
+    projects.map((project: ProjectsLanguages) => (
+      <ProjectItem project={project} lang={lang} />
+    ))
+  }
 </div>

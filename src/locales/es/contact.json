@@ -1,0 +1,19 @@
+{
+  "legend-white": "Llena el formulario y nos mantendremos en",
+  "legend-color": "contacto via Mail.",
+  "name": "Nombre",
+  "name-placeholder": "Tú Nombre...",
+  "name-field-info": "Ingresa un nombre valido",
+  "email": "Email",
+  "email-placeholder": "Tú Email de Contacto...",
+  "email-field-info": "Ingresa un email valido",
+  "message": "Mensaje",
+  "message-placeholder": "Información que va a contener el Email...",
+  "message-field-info": "Ingresa un mensaje valido",
+  "send": "Enviar Mail",
+  "sending": "Enviando...",
+  "error-message": "Error al enviar el mail",
+  "success-message": "Mail enviado correctamente",
+  "required-fields": "Todos los campos son obligatorios",
+  "required-field": "Campo Obligatorio"
+}

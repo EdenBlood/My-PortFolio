@@ -7,9 +7,15 @@ interface Props {
   url: string
   hidden: boolean
   title_main_card: string
+  tUi: {
+    'contact-button': string
+    'linked-in': string
+    github: string
+    resume: string
+  }
 }
 
-const { url, hidden, title_main_card } = Astro.props
+const { url, hidden, title_main_card, tUi } = Astro.props
 ---
 
 <main class={`${hidden ? 'hidden lg:flex' : 'flex'} main-card-container`}>
@@ -30,9 +36,11 @@ const { url, hidden, title_main_card } = Astro.props
       <p>Rosario, <span class="text-sky-200">Argentina</span></p>
     </div>
 
-    <NavIcons />
+    <NavIcons tUi={tUi} />
 
-    <ContactButton url={url} class="w-full lg:mx-auto lg:w-max px-12 lg:px-0" />
+    <ContactButton url={url} class="w-full lg:mx-auto lg:w-max px-12 lg:px-0">
+      {tUi['contact-button']}
+    </ContactButton>
   </div>
 
   <div

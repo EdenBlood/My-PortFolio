@@ -4,38 +4,39 @@ import HeroTitle from '@/components/ui/HeroTitle.astro'
 import DivTextContainer from '@/components/ui/DivTextContainer.astro'
 import ProjectsDone from '@/components/portfolio/ProjectsDone.astro'
 import TechnologiesIUse from './TechnologiesIUse.astro'
+
+interface Props {
+  t: {
+    'presentation-1': string
+    'presentation-2': string
+    'presentation-3': string
+    'projects-done': string
+    'projects-done-description': string
+    'contact-pre-button': string
+    'main-title-white': string
+    'main-title-color': string
+  }
+  tUi: { 'contact-button': string }
+}
+
+const { t, tUi } = Astro.props
 ---
 
 <div
   class="min-h-[95vh] lg:min-h-[90vh] flex flex-col gap-3 md:gap-6 lg:gap-0 lg:justify-evenly"
 >
   <HeroTitle
-    colorlessText="Transformando tus ideas en"
-    coloredText="Realidad."
+    colorlessText={t['main-title-white']}
+    coloredText={t['main-title-color']}
   />
 
   <DivTextContainer>
-    <p>
-      Soy un <strong class="text-fuchsia-400 font-medium"
-        >Desarrollador Full Stack</strong
-      > al que encanta crear sitios web dinámicos, con algo de complejidad.
-    </p>
-    <p>
-      Trabajo principalmente con los <strong
-        class="text-fuchsia-400 font-medium">Frameworks: Astro, Next.js</strong
-      > y los stacks de <strong class="text-fuchsia-400 font-medium"
-        >MERN y PERN</strong
-      >, igualmente siempre estoy abierto a aprender nuevas tecnologías.
-    </p>
-    <p>
-      Tengo nivel de <strong class="text-fuchsia-400 font-medium"
-        >inglés B1</strong
-      >
-      y me esfuerzo todos los días para seguir mejorando.
-    </p>
+    <p set:html={t['presentation-1']} />
+    <p set:html={t['presentation-2']} />
+    <p set:html={t['presentation-3']} />
   </DivTextContainer>
 
-  <ProjectsDone />
+  <ProjectsDone t={t} />
 
   <TechnologiesIUse />
 
@@ -43,8 +44,10 @@ import TechnologiesIUse from './TechnologiesIUse.astro'
     <p
       class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl font-light text-pretty space-y-0.5"
     >
-      Si tienes algún proyecto en mente contactame y lo proyectamos:
+      {t['contact-pre-button']}
     </p>
-    <ContactButton url="#contact" class="w-full md:w-max" />
+    <ContactButton url="#contact" class="w-full md:w-max">
+      {tUi['contact-button']}
+    </ContactButton>
   </div>
 </div>

@@ -1,0 +1,97 @@
+---
+import projects from '@/data/projects'
+import TitleSection from '@/components/ui/TitleSection.astro'
+import Layout from '@/layouts/Layout.astro'
+import ImageSlide from '@/components/ImageSlide.astro'
+import SubTitle from '@/components/ui/SubTitle.astro'
+import { redirectToDefaultLocale } from 'astro:i18n';
+import type { ProjectsLanguages } from '@/data/projects';
+
+export const getStaticPaths = () => {
+  const langs = ["es", "en"];
+
+  return langs.flatMap(lang => {
+    return projects.map(project => ({
+      params: {
+        lang,
+        slug: project[lang as "es" | "en"].slug
+      },
+      props: {
+        project,
+        lang
+      }
+    }))
+  })
+}
+
+const { project, lang } = Astro.props;
+
+const p = project[lang as "es" | "en"];
+
+if (lang !== 'es' && lang !== 'en') {
+  redirectToDefaultLocale(Astro)
+}
+
+const tMain = (await import(`@/locales/${lang}/main-page.json`)).default
+const tUi = (await import(`@/locales/${lang}/ui.json`)).default
+const tProject = (await import(`@/locales/${lang}/project.json`)).default
+
+---
+
+<Layout hidden={true} titleSlug={p.name} title_main_card={tMain['title-main-card']} lang={lang!}>
+  <article class="flex flex-col gap-5">
+    <div class="w-full h-full">
+      <TitleSection
+        >{tProject['title-section']}{" "} <span class="text-purple-600">{p.name}</span>
+      </TitleSection>
+
+      <ImageSlide images={p.images} name={p.name} />
+    </div>
+
+    <div class="space-y-5 md:space-y-10 lg:space-y-5 2xl:space-y-6">
+
+      <SubTitle>{tProject['description']}</SubTitle>
+      <div set:html={p.description} class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl pl-2" />
+
+      <SubTitle>{tProject['learnings']}</SubTitle>
+      <div set:html={p.learnings} class="text-lg md:text-2xl lg:text-lg 2xl:text-2xl pl-2" />
+
+      {
+        p.userData && (
+          <SubTitle>{tProject['data']}</SubTitle>
+          <div
+            set:html={p.userData}
+            class="text-lg md:text-2xl lg:text-lg pl-2 2xl:text-2xl"
+          />
+        )
+      }
+
+      <SubTitle>{tProject['technologies']}</SubTitle>
+
+      <ul class="flex flex-wrap gap-3 pl-2">
+        {
+          p.technologies.map((technology) => (
+            <li class="bg-black bg-linear-to-tl from-blue-800 via-black to-fuchsia-800 hover:contrast-150 transition-all duration-300 hover:scale-110 p-2 rounded-full text-sm md:text-lg lg:text-sm 2xl:text-xl my-1 cursor-default">
+              {technology}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <nav class="flex justify-start mt-8 gap-8">
+      <a
+        href="/"
+        class="bg-purple-600 hover:bg-purple-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-base md:text-2xl lg:text-lg 2xl:text-2xl"
+        >{tUi['back-button']}</a
+      >
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-indigo-600 hover:bg-indigo-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-base md:text-2xl lg:text-lg  2xl:text-2xl"
+        >{tUi['see-project-button']}</a
+      >
+    </nav>
+  </article>
+</Layout>
