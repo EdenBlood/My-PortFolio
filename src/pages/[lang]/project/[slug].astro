@@ -5,7 +5,6 @@ import Layout from '@/layouts/Layout.astro'
 import ImageSlide from '@/components/ImageSlide.astro'
 import SubTitle from '@/components/ui/SubTitle.astro'
 import { redirectToDefaultLocale } from 'astro:i18n';
-import type { ProjectsLanguages } from '@/data/projects';
 
 export const getStaticPaths = () => {
   const langs = ["es", "en"];
@@ -81,7 +80,7 @@ const tProject = (await import(`@/locales/${lang}/project.json`)).default
 
     <nav class="flex justify-start mt-8 gap-8">
       <a
-        href="/"
+        href={`/${lang}`}
         class="bg-purple-600 hover:bg-purple-700 cursor-pointer transition-colors duration-300 py-3 px-6 rounded-lg text-base md:text-2xl lg:text-lg 2xl:text-2xl"
         >{tUi['back-button']}</a
       >
