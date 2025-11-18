@@ -1,5 +1,13 @@
 ---
-export const prerender = false
+export function getStaticPaths() {
+  const langs: Array<'es' | 'en'> = ['es', 'en']
+
+  return langs.map((lang) => {
+    return {
+      params: { lang }
+    }
+  })
+}
 
 const { lang } = Astro.params
 
